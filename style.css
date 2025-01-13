@@ -9,7 +9,7 @@
 .framer{
     position: absolute;
     top: 350px;
-    left: 300px;
+    left: 500px;
     width: 15%;
     height: 25%;
     object-fit: cover;
@@ -19,7 +19,7 @@
 .hackathon{
     position: absolute;
     top: 350px;
-    right: 300px;
+    right: 500px;
     width: 15%;
     height: 25%;
     object-fit: cover;
