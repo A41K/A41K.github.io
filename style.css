@@ -171,7 +171,7 @@ nav a.accent-link{
     height: 100vh;
     width: min(15em, 100%);
     z-index: 10;
-    border-left: 1px solid var(--hover-color);
+    border-left: 1px solid var(#F5E9E8);
     transition: right 300ms ease-in-out;
   }
   nav.show{
