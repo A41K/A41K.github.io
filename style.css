@@ -20,7 +20,7 @@ color: #7B91DB;
     margin-top: 2rem;
     font-size: 2.5rem;
     font-weight: bolder;
-    color: #333;
+    color: #919cb0;
     font-family: "Caveat", serif;
 }
 
@@ -56,7 +56,7 @@ color: #7B91DB;
     margin-top: -55px;
     font-size: 200;
     font-weight: bolder;
-    color: #333;
+    color: #1b3a7b;
     font-family: "Playwrite IN", serif;
     margin-right: 8rem;
 }
@@ -68,7 +68,7 @@ color: #7B91DB;
     margin-left: 9rem;
     font-size: 200;
     font-weight: bolder;
-    color: #333;
+    color: #a7a49b;
     font-family: "Josefin Sans", serif;
 }
 
@@ -86,6 +86,7 @@ color: #7B91DB;
   font-size: 2rem;
   margin-top: 2rem;
   text-align: left;
+  color: #6a7eff;
 }
 
 .storytime{
@@ -105,6 +106,7 @@ color: #7B91DB;
   font-size: 2rem;
   font-family: "Caveat", serif;
   font-weight: 600;
+  color: #a7a49b;
 }
 
 .hackathon2{
@@ -114,6 +116,7 @@ color: #7B91DB;
   font-size: 2rem;
   font-family: "Caveat", serif;
   font-weight: 600;
+  color: #a7a49b;
 }
 
 .hacking{
@@ -163,7 +166,7 @@ color: #7B91DB;
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
 :root{
-  --primary-color: #85a1ae;
+  --primary-color: #cddcef;
   --hover-color: #D0C0C6;
   --accent-color: #B1E4EA; 
   --text-color: #black;
