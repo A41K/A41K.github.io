@@ -21,6 +21,15 @@ body{
     font-family: "Caveat", serif;
 }
 
+.yep2{
+  text-align: center;
+  margin-top: 0.50rem;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: #333;
+  font-family: "Caveat", serif;
+}
+
 .warning{
     text-align: center;
     margin-top: 10rem;
@@ -65,7 +74,28 @@ body{
   font-size: 2.5rem
 }
 
-/* This is the code i borrowed <3 */
+.myself{
+  font-family: "Caveat", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  margin-left: 1.5rem;
+  font-size: 2rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.storytime{
+  margin-left: 2.25rem;
+  margin-top: 0.50rem;
+  text-align: left;
+  font-size: 1.5rem;
+  font-family: "Reenie Beanie", serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* NAVIGATION BAR */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
 :root{
@@ -79,12 +109,9 @@ body{
   padding: 0;
   box-sizing: border-box;
 }
-html{
-  font-family: Poppins, 'Segoe UI', sans-serif;
-  color: var(--text-color);
-  scroll-behavior: smooth; /*For bookmark links*/
-}
+
 body{
+  font-family: "Noto Sans", serif;
   min-height: 100vh;
   min-height: 100dvh;
   background-color: #F5E9E8;
@@ -174,6 +201,7 @@ nav a.accent-link{
     display: block;
   }
   nav{
+    font-family: "Noto Sans", serif;
     position: fixed;
     top: 0;
     right: -100%;
@@ -206,4 +234,4 @@ nav a.accent-link{
 }
 
 
-/* END OF BORROWED CODE */
+/* END OF NAV BAR */
