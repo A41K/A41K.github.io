@@ -136,6 +136,14 @@ color: #7B91DB;
 
 }
 
+.framer{
+  width: 350px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 .example{
   font-size: 0.5rem;
   font-weight: bold;
