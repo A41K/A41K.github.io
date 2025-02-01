@@ -38,3 +38,5 @@ function closeSidebar(){
 })
 
 updateNavbar(media)
+
+const swup = new Swup()
