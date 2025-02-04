@@ -133,7 +133,7 @@ color: #7B91DB;
   font-size: 2rem;
   font-family: "Caveat", serif;
   font-weight: 600;
-  color: #a7a49b;
+  color: #A4B6B6;
 }
 
 .hackathon2{
@@ -143,7 +143,7 @@ color: #7B91DB;
   font-size: 2rem;
   font-family: "Caveat", serif;
   font-weight: 600;
-  color: #a7a49b;
+  color: #A4B6B6;
 }
 
 .hacking{
@@ -337,3 +337,12 @@ nav a.accent-link{
 
 
 /* END OF NAV BAR */
+
+@media screen and (max-width: 700px) {
+  .Intro{
+    margin-top: 2.5rem;
+  }
+  body{
+    height: 700px;
+  }
+}
