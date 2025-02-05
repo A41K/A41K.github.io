@@ -200,6 +200,7 @@ color: #7B91DB;
 }
 
 .spotify{
+  position: inherit;
   width: 200px;
   height: 325px;
   margin-left: 42.5rem;
