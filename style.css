@@ -196,6 +196,16 @@ color: #7B91DB;
 .pls{
   text-align: center;
   font-family: "Caveat", serif;
+
+}
+
+.spotify{
+  width: 150px;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
 }
 /* NAVIGATION BAR */
 
