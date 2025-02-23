@@ -17,13 +17,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://a41k.xyz/css/main.css">
     <script type="text/javascript" src="https://a41k.xyz/js/main.js"></script>
+    <script src="song.js"></script>
 
 </head>
 <body>
   
+  <div id="music-player">
+    <img id="album-cover" src="Song/covers/Disc.png" alt="Album Cover">
+    <div id="track-info" class="hidden"><i>Now Playing:</i> <span id="track-title"></span></div>
+    <div id="album-list" class="hidden">
+        <ul id="album-items"></ul>
+    </div>
+</div>
+
     </div>
         <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -63,5 +73,57 @@
           then I thought "Maybe I should make something proper with my knowledge" and the rest is now history. I think it's very important
           to say that this is a half-baked website with sub-par programming.
         </p>
+
+    <script>
+      const musicPlayer = document.getElementById("music-player");
+      const albumCover = document.getElementById("album-cover");
+      const albumList = document.getElementById("album-list");
+      const albumItems = document.getElementById("album-items");
+      const trackInfo = document.getElementById("track-info");
+      const trackTitle = document.getElementById("track-title");
+      let currentAudio = null;
+      let trackQueue = [];
+      let currentTrackIndex = 0;
+              musicPlayer.addEventListener("click", () => {
+          albumList.classList.toggle("hidden");
+      });
+
+      function playTrack(index) {
+          if (index >= trackQueue.length) return;
+          
+          if (currentAudio) {
+              currentAudio.pause();
+              currentAudio.currentTime = 0;
+          }
+          
+          currentTrackIndex = index;
+          currentAudio = new Audio(trackQueue[currentTrackIndex]);
+          trackTitle.textContent = trackQueue[currentTrackIndex].split("/").pop().replace('.mp3', '');
+          trackInfo.classList.remove("hidden");
+          currentAudio.play();
+          
+          currentAudio.onended = () => {
+              playTrack(currentTrackIndex + 1);
+          };
+      }
+
+      albums.forEach(album => {
+          let li = document.createElement("li");
+          li.textContent = album.title;
+          li.addEventListener("click", () => {
+              albumCover.src = album.cover;
+              trackQueue = album.tracks;
+              currentTrackIndex = 0;
+              playTrack(currentTrackIndex);
+          });
+          albumItems.appendChild(li);
+      });
+
+      musicPlayer.addEventListener("dblclick", () => {
+          if (currentTrackIndex + 1 < trackQueue.length) {
+              playTrack(currentTrackIndex + 1);
+          }
+      });
+    </script>
 </body>
 </html>
