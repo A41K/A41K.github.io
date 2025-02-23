@@ -85,12 +85,13 @@
       let currentAudio = null;
       let trackQueue = [];
       let currentTrackIndex = 0;
-              musicPlayer.addEventListener("click", () => {
+
+          musicPlayer.addEventListener("click", () => {
           albumList.classList.toggle("hidden");
       });
 
       function playTrack(index) {
-          if (index >= trackQueue.length) return;
+        if (index < 0 || index >= trackQueue.length) return;
           
           if (currentAudio) {
               currentAudio.pause();
