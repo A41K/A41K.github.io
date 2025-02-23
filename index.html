@@ -26,13 +26,6 @@
 </head>
 <body>
   
-  <div id="music-player">
-    <img id="album-cover" src="Song/covers/Disc.png" alt="Album Cover">
-    <div id="track-info" class="hidden"><i>Now Playing:</i> <span id="track-title"></span></div>
-    <div id="album-list" class="hidden">
-        <ul id="album-items"></ul>
-    </div>
-</div>
 
     </div>
         <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -73,6 +66,14 @@
           then I thought "Maybe I should make something proper with my knowledge" and the rest is now history. I think it's very important
           to say that this is a half-baked website with sub-par programming.
         </p>
+
+        <div id="music-player">
+          <img id="album-cover" src="Song/covers/Disc.png" alt="Album Cover">
+          <div id="track-info" class="hidden"><i>Now Playing:</i> <span id="track-title"></span></div>
+          <div id="album-list" class="hidden">
+              <ul id="album-items"></ul>
+          </div>
+      </div>
 
     <script>
       const musicPlayer = document.getElementById("music-player");
