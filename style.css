@@ -68,6 +68,7 @@ color: #7B91DB;
     font-size: 2.5rem;
     font-weight: bold;
     color: #333;
+    animation: slidein 2s;
 }
 
 .welcome{
@@ -166,6 +167,7 @@ color: #7B91DB;
   font-family: "Caveat", serif;
   font-weight: 600;
   color: #A4B6B6;
+  animation: slidein 2s;
 }
 
 .hackathon2{
@@ -176,6 +178,7 @@ color: #7B91DB;
   font-family: "Caveat", serif;
   font-weight: 600;
   color: #A4B6B6;
+  animation: slidein 2s;
 }
 
 .hacking{
@@ -184,6 +187,7 @@ color: #7B91DB;
   font-size: 2rem;
   font-family: "Caveat", serif;
   font-style: normal;
+  animation: slidein 2s;
 }
 
 .valve{
@@ -192,6 +196,7 @@ color: #7B91DB;
   margin-left: auto;
   margin-right: auto;
   display: block;
+  animation: slidein 1s;
 
 }
 
@@ -201,6 +206,7 @@ color: #7B91DB;
   margin-left: auto;
   margin-right: auto;
   display: block;
+  animation: slidein 1s;
 }
 
 .example{
@@ -208,6 +214,7 @@ color: #7B91DB;
   font-weight: bold;
   color: #333;
   text-align: center;
+  animation: slidein 3s;
 }
 
 .important{
@@ -215,6 +222,7 @@ color: #7B91DB;
   font-weight: bold;
   color: #7D1038;
   text-align: center;
+  animation: slidein 5s;
 }
 
 .stamp{
@@ -223,11 +231,13 @@ color: #7B91DB;
   margin-left: auto;
   margin-right: auto;
   display: block;
+  animation: slidein 1s;
 }
 
 .pls{
   text-align: center;
   font-family: "Caveat", serif;
+  animation: slidein 2s;
 
 }
 
@@ -245,6 +255,7 @@ color: #7B91DB;
   font-weight: bold;
   color: red;  
   margin-top: 30px;
+  animation: slidein 0.5s;
 }
 .other{
   text-align: center;
@@ -252,6 +263,7 @@ color: #7B91DB;
   font-weight: bold;
   color: #333;
   margin-top: 30px; 
+  animation: slidein 0.5s;
 }
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 #music-player {
