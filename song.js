@@ -88,5 +88,45 @@ const albums = [
             "Song/MrMorale/Mother I Sober.mp3",
             "Song/MrMorale/Mirror.mp3"
         ]
-    }
+    },
+    {
+        title: "To Pimp A Butterfly",
+        cover: "Song/covers/TPAB.png",
+        tracks: [
+            "Song/TPAB/Wesley's Theory.mp3",
+            "Song/TPAB/For Free.mp3",
+            "Song/TPAB/King Kunta.mp3",
+            "Song/TPAB/Institutionalized.mp3",
+            "Song/TPAB/These Walls.mp3",
+            "Song/TPAB/u.mp3",
+            "Song/TPAB/Alright.mp3",
+            "Song/TPAB/For Sale - Interlude.mp3",
+            "Song/TPAB/Momma.mp3",
+            "Song/TPAB/Hood Politics.mp3",
+            "Song/TPAB/How Much A Dollar Cost.mp3",
+            "Song/TPAB/Complexion (A Zulu Love).mp3",
+            "Song/TPAB/The Blacker The Berry.mp3",
+            "Song/TPAB/You Ain't Gotta Lie (Momma Said).mp3",
+            "Song/TPAB/i.mp3",
+            "Song/TPAB/Mortal Man.mp3"
+        ]
+    },
+    {
+        title: "Good Kid, M.A.A.D City",
+        cover: "Song/covers/GKMC.png",
+        tracks: [
+            "Song/GKMC/Sherane.mp3",
+            "Song/GKMC/Bitch, Don’t Kill My Vibe.mp3",
+            "Song/GKMC/Backseat Freestyle.mp3",
+            "Song/GKMC/The Art of Peer Pressure.mp3",
+            "Song/GKMC/Money Trees.mp3",
+            "Song/GKMC/Poetic Justice.mp3",
+            "Song/GKMC/good kid.mp3",
+            "Song/GKMC/m.A.A.d city.mp3",
+            "Song/GKMC/Swimming Pools (Drank).mp3",
+            "Song/GKMC/SAMIDOT.mp3",
+            "Song/GKMC/Real.mp3",
+            "Song/GKMC/Compton.mp3"
+        ]
+    },
 ];
