@@ -258,6 +258,7 @@ color: #7B91DB;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    animation: slidein 1s;
 }
 #album-cover {
     width: 110px;
