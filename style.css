@@ -77,7 +77,7 @@ color: #7B91DB;
     font-weight: bolder;
     color: #333;
     font-family: "Allura", serif;
-    animation: slidein 2s;
+    animation: typing 2s;
 }
 
 .welcome2{
@@ -121,7 +121,14 @@ color: #7B91DB;
       .slide-out {
           transform: translateX(-100%); /* Slide out of view */
       }
-
+      @keyframes slideout {
+          from {
+              transform: translateX(0); /* Slide into view */
+          }
+          to {
+              transform: translateX(-100%); /* Slide out of view */
+          }
+      }
 .Intro{
   margin-top: 4rem;
   font-size: 2.5rem;
@@ -137,7 +144,7 @@ color: #7B91DB;
   margin-top: 2rem;
   text-align: left;
   color: #6a7eff;
-  animation: slidein 2s;
+  animation: slidein 2.5s;
 }
 
 .storytime{
@@ -429,6 +436,27 @@ nav a.accent-link{
   }
   nav .home-li{
     margin-right: unset;
+  }
+  .welcome{
+    animation: slidein 2s;
+  }
+  .welcome2{
+    animation: slidein 2s;
+  }
+  .welcome3{
+    animation: slidein 2s;
+  }
+  .myself{
+    animation: slidein 2s;
+  }
+  .storytime{
+    animation: slidein 6s;
+  }
+  .yep{
+    animation: slidein 3s;
+  }
+  .yep2{
+    animation: slidein 4s;
   }
 }
 
