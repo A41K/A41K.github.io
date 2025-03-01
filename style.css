@@ -78,7 +78,7 @@ color: #7B91DB;
     font-weight: bolder;
     color: #333;
     font-family: "Allura", serif;
-    animation: typing 2s;
+    animation: slidein 2s;
 }
 
 .welcome2{
@@ -365,7 +365,7 @@ nav a:hover{
   background-color: var(--hover-color);
 }
 nav a.active-link{
-  border-bottom: 2px solid var(--text-color);
+  border-bottom: 2px solid black;
 }
 nav a.accent-link{
   background-color: var(--accent-color);

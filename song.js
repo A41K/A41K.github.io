@@ -90,7 +90,7 @@ const albums = [
         ]
     },
     {
-        title: "To Pimp A Butterfly",
+        title: "TPAB",
         cover: "Song/covers/TPAB.png",
         tracks: [
             "Song/TPAB/Wesley's Theory.mp3",
@@ -112,7 +112,7 @@ const albums = [
         ]
     },
     {
-        title: "Good Kid, M.A.A.D City",
+        title: "GK:MC",
         cover: "Song/covers/GKMC.png",
         tracks: [
             "Song/GKMC/Sherane.mp3",
