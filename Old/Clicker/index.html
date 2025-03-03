@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <link rel="icon" type="image/x-icon" href="images.png">
+    <script src="codes.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .game-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+        .click-button {
+            font-size: 50px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.1s;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .click-button:active {
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+        .cursor {
+            position: absolute;
+            font-size: 24px;
+            transform-origin: center;
+        }
+        .buy-button {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            cursor: pointer;
+        }
+        .upgrade-container {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+        }
+        .upgrade-button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        .upgrade-button2 {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .footer{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: #000;
+            color: white;
+        }
+        @media screen and (max-width: 600px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #cursorContainer {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .buy-button, .upgrade-container {
+        position: static;
+        margin-top: 60px; /* Ensures 60px spacing from cursors */
+        text-align: center;
+    }
+    
+    .upgrade-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .upgrade-button, .buy-button {
+        width: 80%; /* Ensures accessibility */
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+    </style>
+</head>
+<body>
+    <h1>Score: <span id="score">0</span></h1>
+    <div class="game-container">
+        <button class="click-button" id="clickButton">🚧</button>
+        <div id="cursorContainer"></div>
+    </div>
+    <button class="buy-button" id="buyCursor">Buy Cursor (0) - Cost: 10</button>
+    
+    <div class="upgrade-container">
+        <button class="upgrade-button" id="upgradeSpeed">Increase Cursor Speed - Cost: 50</button>
+        <button class="upgrade-button" id="upgradeScore">Increase Cursor Score - Cost: 100</button>
+    </div>
+
+    <footer class="footer">
+        This was made by Andrew a.k.a A41K
+    </footer>
+
+    <script>
+     let score = localStorage.getItem('score') ? parseFloat(localStorage.getItem('score')) : 0;
+    let cursorCount = localStorage.getItem('cursorCount') ? parseInt(localStorage.getItem('cursorCount')) : 0;
+    let cursorCost = localStorage.getItem('cursorCost') ? parseInt(localStorage.getItem('cursorCost')) : Math.floor(10 * Math.pow(2, cursorCount));
+    let intervalSpeed = localStorage.getItem('intervalSpeed') ? parseInt(localStorage.getItem('intervalSpeed')) : 650; // Slow cursor
+    let cursorScore = localStorage.getItem('cursorScore') ? parseFloat(localStorage.getItem('cursorScore')) : 1;
+    let speedUpgradeCost = localStorage.getItem('speedUpgradeCost') ? parseInt(localStorage.getItem('speedUpgradeCost')) : 50;
+    let scoreUpgradeCost = localStorage.getItem('scoreUpgradeCost') ? parseInt(localStorage.getItem('scoreUpgradeCost')) : 100;
+    const maxCursors = 100;
+
+    document.getElementById('score').textContent = score;
+    document.getElementById('buyCursor').textContent = `Buy Cursor (${cursorCount}) - Cost: ${cursorCost}`;
+    document.getElementById('upgradeSpeed').textContent = `Increase Cursor Speed - Cost: ${speedUpgradeCost}`;
+    document.getElementById('upgradeScore').textContent = `Increase Cursor Score - Cost: ${scoreUpgradeCost}`;
+
+    document.getElementById('clickButton').addEventListener('click', () => {
+        score++;
+        document.getElementById('score').textContent = score;
+        localStorage.setItem('score', score);
+    });
+
+    document.getElementById('buyCursor').addEventListener('click', () => {
+        if (score >= cursorCost && cursorCount < maxCursors) {
+            score -= cursorCost;
+            cursorCount++;
+            cursorCost = Math.floor(10 * Math.pow(2, cursorCount)); // Exponential price increase
+
+            document.getElementById('score').textContent = score;
+            document.getElementById('buyCursor').textContent = `Buy Cursor (${cursorCount}) - Cost: ${cursorCost}`;
+
+            localStorage.setItem('score', score);
+            localStorage.setItem('cursorCount', cursorCount);
+            localStorage.setItem('cursorCost', cursorCost);
+
+            addCursor();
+        }
+    });
+
+
+
+function updateScoreDisplay() {
+    document.getElementById('score').textContent = parseFloat(score.toFixed(1));
+}
+
+document.getElementById('clickButton').addEventListener('click', () => {
+    score += cursorScore;
+    score = parseFloat(score.toFixed(1)); // Fix floating point precision
+    updateScoreDisplay();
+    localStorage.setItem('score', score);
+});
+
+document.getElementById('upgradeScore').addEventListener('click', () => {
+    if (score >= scoreUpgradeCost) {
+        score -= scoreUpgradeCost;
+        cursorScore += 0.5;
+        scoreUpgradeCost *= 2;
+        
+        score = parseFloat(score.toFixed(1)); // Fix floating point precision
+        cursorScore = parseFloat(cursorScore.toFixed(1));
+
+        localStorage.setItem('cursorScore', cursorScore);
+        localStorage.setItem('scoreUpgradeCost', scoreUpgradeCost);
+        updateScoreDisplay();
+
+        document.getElementById('upgradeScore').textContent = `Increase Cursor Score - Cost: ${scoreUpgradeCost}`;
+        localStorage.setItem('score', score);
+    }
+});
+
+
+
+    document.getElementById('upgradeSpeed').addEventListener('click', () => {
+        if (score >= speedUpgradeCost) {
+            score -= speedUpgradeCost;
+            intervalSpeed = Math.max(1000, intervalSpeed - 100);
+            speedUpgradeCost *= 2;
+
+            localStorage.setItem('intervalSpeed', intervalSpeed);
+            localStorage.setItem('speedUpgradeCost', speedUpgradeCost);
+
+            document.getElementById('score').textContent = score;
+            document.getElementById('upgradeSpeed').textContent = `Increase Cursor Speed - Cost: ${speedUpgradeCost}`;
+
+            localStorage.setItem('score', score);
+        }
+    });
+
+    document.getElementById('upgradeScore').addEventListener('click', () => {
+        if (score >= scoreUpgradeCost) {
+            score -= scoreUpgradeCost;
+            cursorScore += 0.5;
+            scoreUpgradeCost *= 2;
+
+            localStorage.setItem('cursorScore', cursorScore);
+            localStorage.setItem('scoreUpgradeCost', scoreUpgradeCost);
+
+            document.getElementById('score').textContent = score;
+            document.getElementById('upgradeScore').textContent = `Increase Cursor Score - Cost: ${scoreUpgradeCost}`;
+
+            localStorage.setItem('score', score);
+        }
+    });
+
+    function addCursor() {
+        const cursor = document.createElement('div');
+        cursor.className = 'cursor';
+        cursor.textContent = '🖱️';
+        document.getElementById('cursorContainer').appendChild(cursor);
+        updateCursorPositions();
+    }
+
+    function updateCursorPositions() {
+        const cursors = document.querySelectorAll('.cursor');
+        const centerX = 100;
+        const centerY = 100;
+        const radius = 75;
+
+        cursors.forEach((cursor, index) => {
+            const angle = (index * (360 / cursors.length)) * (Math.PI / 180);
+            const x = Math.cos(angle) * radius;
+            const y = Math.sin(angle) * radius;
+            cursor.style.left = `${centerX + x}px`;
+            cursor.style.top = `${centerY + y}px`;
+        });
+    }
+
+    function animateCursors() {
+        let angleOffset = 0;
+        setInterval(() => {
+            const cursors = document.querySelectorAll('.cursor');
+            cursors.forEach((cursor, index) => {
+                const angle = (angleOffset + index * (360 / cursors.length)) * (Math.PI / 180);
+                const x = Math.cos(angle) * 75;
+                const y = Math.sin(angle) * 75;
+                cursor.style.left = `${85 + x}px`;
+                cursor.style.top = `${85 + y}px`;
+            });
+            angleOffset += 2;
+            score += cursorCount * cursorScore;
+            document.getElementById('score').textContent = score;
+            localStorage.setItem('score', score);
+        }, intervalSpeed);
+    }
+
+    function resetsave() {
+        localStorage.clear();
+        location.reload();
+    }
+
+    // Create reset button
+    const resetButton = document.createElement('button');
+    resetButton.textContent = "Reset Save";
+    resetButton.style.position = "absolute";
+    resetButton.style.bottom = "40px";
+    resetButton.style.padding = "10px";
+    resetButton.style.cursor = "pointer";
+    resetButton.addEventListener('click', resetsave);
+    document.body.appendChild(resetButton);
+
+    // Reload saved cursors on page load
+    for (let i = 0; i < cursorCount; i++) {
+        addCursor();
+    }
+
+    animateCursors();
+    </script>    
+</body>
+</html>    

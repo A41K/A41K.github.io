@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="icon.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <meta name="view-transition" content="same-origin">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="footer.css">
+    <title>Guessing Games</title>
+    <style>
+        h1{
+            font-family: playwrite in;
+            font-size: 50px;
+            color: #000;
+            text-align: center;
+            margin-top: 100px;
+        }
+        body {
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        }
+        .MovieClip {
+            outline: 5px solid black;
+            width: 480px;
+            height: 270px;
+            margin: 20px auto;
+            display: block;
+        }
+        button, input {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .answer-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+        @media screen and (max-width: 500px) {
+            .MovieClip {
+        outline: 5px solid black;
+        width: 90%; /* Adjust width dynamically */
+        max-width: 480px; /* Prevent it from getting too big */
+        height: auto; /* Maintain aspect ratio */
+        margin: 20px auto;
+        display: block;
+    }
+
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Guess The Movie</h1>
+    
+    <video id="moviePlayer" class="MovieClip" controls>
+        <source id="movieSource" src="" type="video/mp4">
+    </video>
+
+<!-- Buzzer sound -->
+    <audio id="wrongSound">
+        <source src="Wrong.mp3" type="audio/mpeg">
+    </audio>
+    
+    <!-- Answer Form & Score (Now Centered Under the Movie) -->
+    <div class="answer-section">
+        <p id="correctMovie" style="color: red; font-size: 18px; display: none;"></p>
+        <input type="text" id="movieGuess" placeholder="Enter movie name">
+        <button onclick="checkAnswer()">Submit</button>
+        <p id="score">Score: 0</p>
+    </div>
+
+    <footer class="footer">
+        This was made by Andrew a.k.a A41K
+    </footer>
+    
+    <script>
+const movies = [
+    "Whiplash.mp4",
+    "Avatar.mp4",
+    "Titanic.mp4",
+    "Gladiator.mp4",
+    "Spiderman.mp4",
+    "Troja.mp4",
+    "Batman.mp4",
+    "Gentlemen.mp4",
+    "Three Musketeers.mp4",
+    "Top Gun.mp4",
+    "Oppenheimer.mp4",
+    "Lord of the rings.mp4",
+    "Johnny English.mp4",
+    "Barbie.mp4",
+]; // Manually list all movie files
+
+let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
+let usedMovies = localStorage.getItem("usedMovies") ? JSON.parse(localStorage.getItem("usedMovies")) : [];
+let currentMovie = "";
+let answered = false;
+
+document.getElementById("score").innerText = `Score: ${score}`; // Load saved score
+
+function saveProgress() {
+    localStorage.setItem("score", score);
+    localStorage.setItem("usedMovies", JSON.stringify(usedMovies));
+}
+
+    function checkAnswer() {
+    if (answered) return; // Prevent multiple answers for the same movie
+
+    const userGuessInput = document.getElementById("movieGuess");
+    const submitButton = document.querySelector("button[onclick='checkAnswer()']");
+    const correctMovieDisplay = document.getElementById("correctMovie");
+    const wrongSound = document.getElementById("wrongSound");
+
+        // Normalize user input and movie name (lowercase + remove accents)
+    const normalizeText = (text) => text
+        .toLowerCase()
+        .normalize("NFD") // Decomposes special characters (e.g., á -> a + ´)
+        .replace(/[\u0300-\u036f]/g, ""); // Removes accent marks
+
+    const userGuess = normalizeText(userGuessInput.value.trim());
+    const correctMovie = normalizeText(currentMovie);
+
+    answered = true; // Lock answering for this round
+
+    if (userGuess === currentMovie.toLowerCase() && userGuess !== "") {
+        score++;
+        document.getElementById("score").innerText = `Score: ${score}`;
+        alert("Correct! +1 point");
+        correctMovieDisplay.style.display = "none";
+    } else {
+        correctMovieDisplay.innerText = `Correct Answer: ${currentMovie}`;
+        correctMovieDisplay.style.display = "block";
+        wrongSound.play(); // Play buzzer sound
+    }
+
+    saveProgress(); // Save the updated score
+
+    // Disable input and button until the next round
+    userGuessInput.disabled = true;
+    submitButton.disabled = true;
+
+    // Load the next clip after 2 seconds
+    setTimeout(() => {
+        userGuessInput.disabled = false;
+        submitButton.disabled = false;
+    }, 2000);
+
+    setTimeout(() => {
+        loadNewClip();
+    }, 3000);
+}
+
+window.onload = function () {
+    loadNewClip(); // Select a movie immediately, but don't autoplay
+    const moviePlayer = document.getElementById("moviePlayer");
+    moviePlayer.pause(); // Ensure it does not start automatically
+};
+
+
+
+function loadNewClip() {
+    if (movies.length === 0) return alert("No movies found!");
+
+    // Reset usedMovies if all movies have been played
+    if (usedMovies.length === movies.length) {
+        usedMovies = [];
+    }
+
+    let randomMovie;
+    do {
+        randomMovie = movies[Math.floor(Math.random() * movies.length)];
+    } while (usedMovies.includes(randomMovie)); // Keep picking until we get an unused movie
+
+    usedMovies.push(randomMovie); // Add to used list
+    saveProgress(); // Save the updated score
+    currentMovie = randomMovie.replace(/\..+$/, ""); // Remove file extension
+
+    console.log("Selected movie:", currentMovie);
+
+    answered = false; // ✅ Reset so the user can answer again
+    document.getElementById("movieGuess").value = ""; // Clear input
+    document.getElementById("correctMovie").style.display = "none"; // Hide previous correct answer
+
+    const moviePlayer = document.getElementById("moviePlayer");
+    const movieSource = document.getElementById("movieSource");
+
+    movieSource.src = `movies/${randomMovie}`;
+    moviePlayer.load();
+    
+    // Ensure movie plays with sound
+    moviePlayer.muted = false;
+    moviePlayer.volume = 1.0;
+
+    // Auto-play fix (some browsers block autoplay)
+    moviePlayer.play().catch(error => console.error("Autoplay blocked:", error));
+
+    window.onload = loadNewClip;
+}
+
+    </script>
+</body>
+</html>

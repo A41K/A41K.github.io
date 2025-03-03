@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="icon.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <meta name="view-transition" content="same-origin">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="footer.css">
+    <title>Song Guessing Game</title>
+    <style>
+        h1 {
+            font-family: playwrite in;
+            font-size: 50px;
+            color: #000;
+            text-align: center;
+            margin-top: -25px;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+        .album-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            cursor: pointer;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .album-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        .wrong-answer {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: none;
+        }
+        .next-button {
+            display: none;
+            margin-left: 10px;
+            font-size: 35px;
+            cursor: pointer;
+        }
+        #answer-form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guess the Song</h1>
+    <p id="wrong-answer" class="wrong-answer"></p>
+    <div class="album-container" onclick="playRandomSong()">
+        <img id="album-cover" src="" alt="Album Cover">
+        <div class="vinyl">
+            <img id="vinyl-cover" src="" alt="Mini Album Cover">
+        </div>
+    </div>
+    <input type="text" id="song-input" placeholder="Enter song name">
+    <button onclick="checkAnswer()">Submit</button>
+    <p id="score">Score: 0</p>
+    <span class="next-button" id="next-button" onclick="loadNextSong()">▶️</span>
+    <audio id="audio-player" controls style="display:none;"></audio>
+    
+    <footer class="footer">
+        This was made by Andrew a.k.a A41K
+    </footer>
+
+    <script>
+        let songs = [
+            { album: "DAMN.", song: "BLOOD" },
+            { album: "DAMN.", song: "DNA" },
+            { album: "DAMN.", song: "DUCKWORTH" },
+            { album: "DAMN.", song: "ELEMENT" },
+            { album: "DAMN.", song: "FEAR" },
+            { album: "DAMN.", song: "FEEL" },
+            { album: "DAMN.", song: "GOD" },
+            { album: "DAMN.", song: "HUMBLE" },
+            { album: "DAMN.", song: "LOVE" },
+            { album: "DAMN.", song: "LOYALTY" },
+            { album: "DAMN.", song: "LUST" },
+            { album: "DAMN.", song: "PRIDE" },
+            { album: "DAMN.", song: "XXX" },
+            { album: "DAMN.", song: "YAH" },
+
+            { album: "TPAB", song: "Alright" },
+            { album: "TPAB", song: "Complexion" },
+            { album: "TPAB", song: "Hood Politics" },
+            { album: "TPAB", song: "How Much A Dollar Cost" },
+            { album: "TPAB", song: "i" },
+            { album: "TPAB", song: "Institutionalized" },
+            { album: "TPAB", song: "King Kunta" },
+            { album: "TPAB", song: "Momma" },
+            { album: "TPAB", song: "Mortal Man" },
+            { album: "TPAB", song: "The Blacker The Berry" },
+            { album: "TPAB", song: "These Walls" },
+            { album: "TPAB", song: "u" },
+            { album: "TPAB", song: "Wesley's Theory" },
+            { album: "TPAB", song: "You Ain't Gotta Lie" },
+
+            { album: "GKMC", song: "Backseat Freestyle" },
+            { album: "GKMC", song: "Bitch, Don't Kill My Vibe" },
+            { album: "GKMC", song: "Compton" },
+            { album: "GKMC", song: "good kid" },
+            { album: "GKMC", song: "m.A.A.d city" },
+            { album: "GKMC", song: "Money Trees" },
+            { album: "GKMC", song: "Poetic Justice" },
+            { album: "GKMC", song: "Real" },
+            { album: "GKMC", song: "Sherane" },
+            { album: "GKMC", song: "Sing About Me I'm Dying of Thirst" },
+            { album: "GKMC", song: "Swimming Pools" },
+            { album: "GKMC", song: "The Art of Peer Pressure" },
+            
+            { album: "GNX", song: "wacced out murals" },
+            { album: "GNX", song: "squabble up" },
+            { album: "GNX", song: "luther" },
+            { album: "GNX", song: "man at the garden" },
+            { album: "GNX", song: "hey now" },
+            { album: "GNX", song: "dodger blue" },
+            { album: "GNX", song: "gloria" },
+            { album: "GNX", song: "heart pt. 6" },
+            { album: "GNX", song: "peekaboo" },
+            { album: "GNX", song: "reincarnated" },
+            { album: "GNX", song: "tv off" },
+
+            { album: "Ilaydown", song: "Don't Put Anything On the Bible" },
+            { album: "Ilaydown", song: "vulgar display of power" },
+            { album: "Ilaydown", song: "SIN MIEDO" },
+            { album: "Ilaydown", song: "New Black History" },
+            { album: "Ilaydown", song: "loop it and leave it" },
+            { album: "Ilaydown", song: "JPEGULTRA!" },
+            { album: "Ilaydown", song: "JIHAD JOE" },
+            { album: "Ilaydown", song: "it's dark and hell is hot" },
+            { album: "Ilaydown", song: "I'll Be Right There" },
+            { album: "Ilaydown", song: "i scream this in the mirror before i interact with anyone" },
+            { album: "Ilaydown", song: "i recovered from this" },
+            { album: "Ilaydown", song: "Exmilitary" },
+            { album: "Ilaydown", song: "either on or off the drugs" },
+            { album: "Ilaydown", song: "don't rely on other men" },
+            
+            { album: "Blonde", song: "Nikes" },
+            { album: "Blonde", song: "Ivy" },
+            { album: "Blonde", song: "Pink + White" }, 
+            { album: "Blonde", song: "Be Yourself" },
+            { album: "Blonde", song: "Solo" },
+            { album: "Blonde", song: "Skyline To" },
+            { album: "Blonde", song: "Self Control" },
+            { album: "Blonde", song: "Good Guy" },
+            { album: "Blonde", song: "Nights" },
+            { album: "Blonde", song: "Solo (Reprise)" },
+            { album: "Blonde", song: "Pretty Sweet" },
+            { album: "Blonde", song: "Facebook Story" },
+            { album: "Blonde", song: "Close to You" },
+            { album: "Blonde", song: "White Ferrari" },
+            { album: "Blonde", song: "Seigfried" },
+            { album: "Blonde", song: "Godspeed" },
+            { album: "Blonde", song: "Futura Free" }, 
+
+            { album: "channel ORANGE", song: "Start" },
+            { album: "channel ORANGE", song: "Thinkin Bout You" },
+            { album: "channel ORANGE", song: "Fertilizer" },
+            { album: "channel ORANGE", song: "Sierra Leone" },
+            { album: "channel ORANGE", song: "Sweet Life" },
+            { album: "channel ORANGE", song: "Not Just Money" },
+            { album: "channel ORANGE", song: "Super Rich Kids" },
+            { album: "channel ORANGE", song: "Pilot Jones" },
+            { album: "channel ORANGE", song: "Crack Rock" },
+            { album: "channel ORANGE", song: "Pyramids" },
+            { album: "channel ORANGE", song: "Lost" },
+            { album: "channel ORANGE", song: "White" },
+            { album: "channel ORANGE", song: "Monks" },
+            { album: "channel ORANGE", song: "Bad Religion" },
+            { album: "channel ORANGE", song: "Pink Matter" },
+            { album: "channel ORANGE", song: "Forrest Gump" },
+            { album: "channel ORANGE", song: "End" },
+
+            { album: "UTOPIA", song: "HYAENA" },
+            { album: "UTOPIA", song: "THANK GOD" },
+            { album: "UTOPIA", song: "MODERN JAM" },
+            { album: "UTOPIA", song: "MY EYES" },
+            { album: "UTOPIA", song: "GOD'S COUNTRY" },
+            { album: "UTOPIA", song: "SIRENS" },
+            { album: "UTOPIA", song: "MELTDOWN" },
+            { album: "UTOPIA", song: "FE!N" },
+            { album: "UTOPIA", song: "DELRESTO (ECHOES)" },
+            { album: "UTOPIA", song: "I KNOW ?" },
+            { album: "UTOPIA", song: "TOPIA TWINS" },
+            { album: "UTOPIA", song: "CIRCUS MAXIMUS" },
+            { album: "UTOPIA", song: "PARASAIL" },
+            { album: "UTOPIA", song: "SKITZO" },
+            { album: "UTOPIA", song: "LOST FOREVER" },
+            { album: "UTOPIA", song: "LOOOVE" },
+            { album: "UTOPIA", song: "K-POP" },
+            { album: "UTOPIA", song: "TELEKINESIS" },
+            { album: "UTOPIA", song: "TIL FURTHER NOTICE" },
+
+            { album: "ASTROWORLD", song: "STARGAZING" },
+            { album: "ASTROWORLD", song: "CAROUSEL" },
+            { album: "ASTROWORLD", song: "SICKO MODE" },
+            { album: "ASTROWORLD", song: "R.I.P. SCREW" },
+            { album: "ASTROWORLD", song: "STOP TRYING TO BE GOD" },
+            { album: "ASTROWORLD", song: "NO BYSTANDERS" },
+            { album: "ASTROWORLD", song: "SKELETONS" },
+            { album: "ASTROWORLD", song: "WAKE UP" },
+            { album: "ASTROWORLD", song: "5% TINT" },
+            { album: "ASTROWORLD", song: "NC-17" },
+            { album: "ASTROWORLD", song: "ASTROTHUNDER" },
+            { album: "ASTROWORLD", song: "YOSEMITE" },
+            { album: "ASTROWORLD", song: "CAN'T SAY" },
+            { album: "ASTROWORLD", song: "WHO? WHAT!" },
+            { album: "ASTROWORLD", song: "BUTTERFLY EFFECT" },
+            { album: "ASTROWORLD", song: "HOUSTONFORNICATION" },
+            { album: "ASTROWORLD", song: "COFFEE BEAN" },
+
+            { album: "Mr. Morale & The Big Steppers", song: "United In Grief" },
+            { album: "Mr. Morale & The Big Steppers", song: "N95" },
+            { album: "Mr. Morale & The Big Steppers", song: "Worldwide Steppers" },
+            { album: "Mr. Morale & The Big Steppers", song: "Die Hard" },
+            { album: "Mr. Morale & The Big Steppers", song: "Father Time" },
+            { album: "Mr. Morale & The Big Steppers", song: "Rich (Interlude)" },
+            { album: "Mr. Morale & The Big Steppers", song: "Rich Spirit" },
+            { album: "Mr. Morale & The Big Steppers", song: "We Cry Together" },
+            { album: "Mr. Morale & The Big Steppers", song: "Purple Hearts" },
+            { album: "Mr. Morale & The Big Steppers", song: "Count Me Out" },
+            { album: "Mr. Morale & The Big Steppers", song: "Crown" },
+            { album: "Mr. Morale & The Big Steppers", song: "Silent Hill" },
+            { album: "Mr. Morale & The Big Steppers", song: "Savior (Interlude)" },
+            { album: "Mr. Morale & The Big Steppers", song: "Savior" },
+            { album: "Mr. Morale & The Big Steppers", song: "Auntie Diaries" },
+            { album: "Mr. Morale & The Big Steppers", song: "Mr. Morale" },
+            { album: "Mr. Morale & The Big Steppers", song: "Mother I Sober" },
+            { album: "Mr. Morale & The Big Steppers", song: "Mirror" },
+            { album: "Mr. Morale & The Big Steppers", song: "The Heart Part 5" },
+
+        ];
+        
+        function forcePlaySong(songName) {
+    let audio = document.getElementById("audio-player");
+
+    // Find the song in the list
+    let foundSong = songs.find(song => song.song.toLowerCase() === songName.toLowerCase());
+
+    if (foundSong) {
+        correctSong = foundSong.song;
+        correctAlbum = foundSong.album;
+
+        // Update the album cover display
+        document.getElementById("album-cover").src = `covers/${correctAlbum}.png`; 
+        document.getElementById("album-cover").style.display = "block";
+
+        // Update the audio source and play
+        audio.src = `songs/${correctSong}.mp3`; 
+        audio.style.display = "block";
+        audio.play();
+    } else {
+        alert("Song not found in the list!");
+    }
+}
+
+        let correctAlbum = "";
+        let correctSong = "";
+        let score = 0;
+        function loadNextSong() {
+            let randomEntry = songs[Math.floor(Math.random() * songs.length)];
+            correctAlbum = randomEntry.album;
+            correctSong = randomEntry.song;
+            
+            document.getElementById("album-cover").src = "default-cover.png";
+            document.getElementById("album-cover").style.display = "block";
+            document.getElementById("vinyl-cover").src = "";
+            document.getElementById("vinyl-cover").style.display = "none";
+            document.getElementById("song-input").value = "";
+            document.getElementById("wrong-answer").style.display = "none";
+            document.getElementById("next-button").style.display = "none";
+            document.getElementById("audio-player").src = `songs/${correctSong}.mp3`;
+            document.getElementById("submit-button").disabled = false;
+        }
+        function playRandomSong() {
+            let audio = document.getElementById("audio-player");
+            audio.src = `songs/${correctSong}.mp3`;
+            audio.style.display = "block";
+            audio.play();
+        }
+
+        function checkAnswer() {
+            let input = document.getElementById("song-input").value.trim();
+            let wrongAnswerDisplay = document.getElementById("wrong-answer");
+            let nextButton = document.getElementById("next-button");
+            
+            if (input.toLowerCase() === correctSong.toLowerCase()) {
+                document.getElementById("album-cover").src = `covers/${correctAlbum}.png`; 
+                document.getElementById("album-cover").style.display = "block";
+                wrongAnswerDisplay.style.display = "none";
+                score++;
+            } else {
+                wrongAnswerDisplay.textContent = `Wrong! The correct answer was: ${correctSong} from ${correctAlbum}`;
+                wrongAnswerDisplay.style.display = "block";
+                score--;
+            }
+            document.getElementById("score").textContent = `Score: ${score}`;
+            nextButton.style.display = "inline";
+            document.getElementById("submit-button").disabled = false;
+        }
+
+        loadNextSong();
+    </script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+body{
+    background-color: #CADCFC;
+}
+
+h1, p{
+    color:  #00246B;
+}
+
+.notavailable{
+    color: red;
+    align-items: flex-start;
+}
+
+.available{
+    color: green;
+    font-style: italic;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: flex-start;
+}
+
+.item1{
+    position: relative;
+    size: relative;
+    width: 20%;
+    height: 20%;
+    object-fit: cover;
+    padding: 20px;
+    border-radius: 60px;
+    align-items: flex-start;
+}
+
+.name{
+    text-align: center;
+    margin-top: 6rem;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+}
+
+.desc{
+    text-align: center;
+    margin-top: 0.50rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+}
+
+.yes{
+    position: absolute;
+    top: 200px;
+    width: 100%;
+    height: 5%;
+    object-fit: cover;
+    z-index: -1;
+    align-items: flex-start;
+}
+
+.item{
+    position: relative;
+    width: 22.5%;
+    height: 22.5%;
+    object-fit: cover;
+    padding: 20px;
+    border-radius: 60px;
+    align-items: flex-start;
+}
+
+.stamp1{
+    position: absolute;
+    left: 150px;
+    top: 310px;
+    height: 20%;
+    align-items: flex-start;
+
+    
+}
+
+.stamp01{
+    position: absolute;
+    left:170px;
+    top:500px;
+    font-size: 50px;
+    align-items: flex-start;
+}
+
+
+.stamp2{
+    position: absolute;
+    left: 625px;
+    top: 310px;
+    height: 20%;
+    align-items: flex-start;
+}
+
+.stamp02{
+    position: absolute;
+    left:645px;
+    top:500px;
+    font-size: 50px;
+    align-items: flex-start;
+}
+
+.stamp3{
+    position: absolute;
+    left: 1100px;
+    top: 310px;
+    height: 20%;
+    align-items: flex-start;
+}
+
+.stamp03{
+    position: absolute;
+    left:1075px;
+    top:500px;
+    font-size: 50px;
+    align-items: flex-start;
+}
+
+.stamp4{
+    position: absolute;
+    left: 1565px;
+    top: 310px;
+    height: 20%;
+    align-items: flex-start;
+}
+
+.stamp04{
+    position: absolute;
+    left:1545px;
+    top:500px;
+    font-size: 50px;
+    align-items: flex-start;
+}
+
+.stamp5{
+    position: absolute;
+    left: 70px;
+    top: 780px;
+    height: 20%;
+    align-items: flex-start;
+}
+
+.stamp05{
+    position: absolute;
+    left:170px;
+    top:970px;
+    font-size: 50px;
+    align-items: flex-start;
+}
+
+.stamp6{
+    position: absolute;
+    left: 625px;
+    top: 780px;
+    height: 20%;
+    align-items: flex-start;
+}
+
+.stamp06{
+    position: absolute;
+    left:625px;
+    top:970px;
+    font-size: 50px;
+    align-items: flex-start;
+}
+
+.stamp7{
+    position: absolute;
+    left: 1060px;
+    top: 780px;
+    height: 20%;
+    align-items: flex-start;
+}
+
+.stamp07{
+    position: absolute;
+    left:1110px;
+    top:970px;
+    font-size: 50px;
+    align-items: flex-start;
+}
+
+.stamp8{
+    position: absolute;
+    left: 1525px;
+    top: 780px;
+    height: 20%;
+    align-items: flex-start;
+}
+
+.stamp08{
+    position: absolute;
+    left:1575px;
+    top:970px;
+    font-size: 50px;
+    align-items: flex-start;
+}
+
+
+
+.container{
+    position: fixed;
+    min-height: 14vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.mit{
+    text-align: center;
+    margin-top: 0.50rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+}
+
+.webstore{
+    text-align: right;
+    margin-top: 0.50rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+}
+
+.partner{
+    text-align: left;
+    margin-top: 0.50rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+.lie{
+    text-align: center;
+    margin-top: 0.50rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+}
+
+.image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+
+
+.arrow{
+    position: absolute;
+    left: 50px;
+    top: 90px;
+    width: 5%;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+}
+@
