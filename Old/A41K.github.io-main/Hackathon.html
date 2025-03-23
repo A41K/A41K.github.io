@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="Favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <meta name="view-transition" content="same-origin">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="song.js"></script>
+
+</head>
+<body>
+    </div>
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+
+        <button id="open-sidebar-button" onclick="openSidebar()" aria-label="open sidebar" aria-expanded="false" aria-controls="navbar">
+            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#c9c9c9"><path d="M165.13-254.62q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.86q7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.87q-7.22 7.12-17.9 7.12H165.13Zm0-200.25q-10.68 0-17.9-7.27-7.23-7.26-7.23-17.99 0-10.74 7.23-17.87 7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.27 7.23 7.26 7.23 17.99 0 10.74-7.23 17.87-7.22 7.13-17.9 7.13H165.13Zm0-200.26q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.87q7.22-7.12 17.9-7.12h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.86q-7.22 7.13-17.9 7.13H165.13Z"/></svg>
+        </button>   
+
+<nav id="navbar">
+    <ul>
+        <li>
+            <button id="close-sidebar-button" onclick="closeSidebar()" aria-label="close sidebar">
+                <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#c9c9c9"><path d="m480-444.62-209.69 209.7q-7.23 7.23-17.5 7.42-10.27.19-17.89-7.42-7.61-7.62-7.61-17.7 0-10.07 7.61-17.69L444.62-480l-209.7-209.69q-7.23-7.23-7.42-17.5-.19-10.27 7.42-17.89 7.62-7.61 17.7-7.61 10.07 0 17.69 7.61L480-515.38l209.69-209.7q7.23-7.23 17.5-7.42 10.27-.19 17.89 7.42 7.61 7.62 7.61 17.7 0 10.07-7.61 17.69L515.38-480l209.7 209.69q7.23 7.23 7.42 17.5.19 10.27-7.42 17.89-7.62 7.61-17.7 7.61-10.07 0-17.69-7.61L480-444.62Z"/></svg>
+            </button>
+        </li>
+        <li><a href="/index.html">Back</a></li>
+        <li class="home-li"><a href="index.html">Home</a></li>
+        <li><a href="Hackathon.html" class=active-link aria-current="page">Hackathon</a></li>
+        <li><a href="Framer.html">Framer</a></li>
+        <li><a href="stamps.html">School</a></li>
+        <li><a href="https://a41k.github.io/Projects/">Projects</a></li>
+        <li><a href="oldprojects.html">Archive</a></li>
+  </ul>
+</nav>
+
+    <div id="overlay" onclick="closeSidebar()" aria-hidden="true"></div>
+
+    <h1 class="yep">So I made two websites for the <a href="https://www.codedex.io/">Codédex</a> hackathon</h1>
+<div class="hack">
+    <p class="pls">CLICK ON THE IMAGE</p>
+    <p class="hackathon">For the first one(VERY BROKEN)</p>
+    <p class="hacking">The objective was to make a website for a coffee shop</p>
+    <a href="https://a41k.github.io/SummerHackathon/"><img src="sipnplay.png" class="valve"></a>
+    <p class="example">"This is an example"</p>
+
+    <p class="hackathon2">For the second one</p>
+    <p class="hacking">The objective was to make a website 90's style.</p>
+    <a href="https://a41k.github.io/Hackathon2/"><img src="valve.png" class="valve"></a>
+    <p class="example">"This is an example"</p>
+</div>
+<div id="music-player">
+    <img id="album-cover" src="Song/covers/Disc.png" alt="Album Cover">
+    <div id="track-info" class="hidden"><i>Now Playing:</i> <span id="track-title"></span></div>
+    <div id="album-list" class="hidden">
+        <ul id="album-items"></ul>
+    </div>
+</div>
+<script>
+    const musicPlayer = document.getElementById("music-player");
+    const albumCover = document.getElementById("album-cover");
+    const albumList = document.getElementById("album-list");
+    const albumItems = document.getElementById("album-items");
+    const trackInfo = document.getElementById("track-info");
+    const trackTitle = document.getElementById("track-title");
+    let currentAudio = null;
+    let trackQueue = [];
+    let currentTrackIndex = 0;
+            musicPlayer.addEventListener("click", () => {
+        albumList.classList.toggle("hidden");
+    });
+
+    function playTrack(index) {
+        if (index >= trackQueue.length) return;
+        
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+        }
+        
+        currentTrackIndex = index;
+        currentAudio = new Audio(trackQueue[currentTrackIndex]);
+        trackTitle.textContent = trackQueue[currentTrackIndex].split("/").pop().replace('.mp3', '');
+        trackInfo.classList.remove("hidden");
+        currentAudio.play();
+        
+        currentAudio.onended = () => {
+            playTrack(currentTrackIndex + 1);
+        };
+    }
+
+    albums.forEach(album => {
+        let li = document.createElement("li");
+        li.textContent = album.title;
+        li.addEventListener("click", () => {
+            albumCover.src = album.cover;
+            trackQueue = album.tracks;
+            currentTrackIndex = 0;
+            playTrack(currentTrackIndex);
+        });
+        albumItems.appendChild(li);
+    });
+
+    musicPlayer.addEventListener("dblclick", () => {
+        if (currentTrackIndex + 1 < trackQueue.length) {
+            playTrack(currentTrackIndex + 1);
+        }
+    });
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    #music-player {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+    }
+    #album-cover {
+        width: 110px;
+        height: 110px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-bottom: 0px;
+    }
+    #album-list {
+        background: white;
+        padding: 10px;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 110px;
+        width: 150px;
+        right: 0;
+    }
+    .hidden {
+        display: none;
+    }
+    #track-info {
+        font-family: 'Press Start 2P', cursive;
+        color: white;
+        text-align: center;
+        margin-top: 5px;
+        width: 135px;
+    }
+    #track-title {
+        color: dodgerblue;
+    }
+    #album-list ul {
+        list-style-type: none;
+        padding: 0;
+    }
+  </style>
+</body>
+</html>
