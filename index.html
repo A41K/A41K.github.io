@@ -851,6 +851,27 @@
     cursor: pointer;
 }
 
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  top: 75px;
+}
+
+.language-switcher button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.language-switcher button:hover {
+  background: #444;
+}
+
         /* Media Queries */
         @media (max-width: 768px) {
             .greeting {
@@ -921,11 +942,16 @@
             <nav>
                 <a href="#" class="logo">A41K</a>
                 <div class="nav-links" id="navLinks">
-                    <a href="#" class="active">Home</a>
-                    <a href="#projects">Projects</a>
-                    <a href="https://a41k.xyz/Projects">Games</a>
-                    <a href="Old/A41K.github.io-main/index.html">Archive</a>
+                    <a href="#" class="active" data-translate="Nav1">Home</a>
+                    <a href="#projects" data-translate="Nav2">Projects</a>
+                    <a href="https://a41k.xyz/Projects" data-translate="Nav3">Games</a>
+                    <a href="Old/A41K.github.io-main/index.html" data-translate="Nav4">Archive</a>
                 </div>
+
+                <div class="language-switcher">
+                    <button onclick="toggleLanguage()">EN</button>
+                </div>
+
                 <div class="hamburger" id="hamburger">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -945,24 +971,23 @@
                     <span class="hey">Hey</span>
                     <span class="hello">Hello</span>
                 </div>
-                <p class="tagline">This is my portfolio</p>
-                <p class="subtitle">You can find all my projects here</p>
-                <a href="#projects" class="cta-button">View My Work</a>
+                <p class="tagline" data-translate="Portfolio">This is my portfolio</p>
+                <p class="subtitle" data-translate="Port2">You can find all my projects here</p>
+                <a href="#projects" class="cta-button" data-translate="Button">View My Work</a>
             </div>
         </div>
     </section>
 
     <section class="introduction">
         <div class="container">
-            <h2 class="introduction-title">Little introduction:</h2>
-            <p>Hello I'm Andrew a.k.a A41K. I've been making websites and programming for over half a decade now. This was mostly a passion project that I've tinkered about making. First I did it with <a href="Framer.html">Framer</a> then I thought "Maybe I should make something proper with my knowledge and the rest is now history. I think it's very important to say that this is a half-baked website with sub-par programming.</p>
-            <p>I specialize in creating responsive, user-friendly websites and applications. My goal is to combine technical expertise with creative design to build digital experiences that not only look great but also function flawlessly.</p>
+            <h2 class="introduction-title" data-translate="Intro">Little introduction:</h2>
+            <p data-translate="about-text">Hello I'm Andrew a.k.a A41K. I've been making websites and programming for over half a decade now. This was mostly a passion project that I've tinkered about making. First I did it with <a href="Framer.html">Framer</a> then I thought "Maybe I should make something proper with my knowledge and the rest is now history. I think it's very important to say that this is a half-baked website with sub-par programming.</p>
         </div>
     </section>
 
     <section class="skills">
         <div class="container">
-            <h2 class="section-title">My Skills</h2>
+            <h2 class="section-title" data-translate="skill">My Skills</h2>
             <div class="skills-container">
                 <div class="skill-category">
                     <h3>Frontend</h3>
@@ -1060,7 +1085,7 @@
 
     <section class="projects" id="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title" data-translate="Prot">Featured Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <a href="https://a41k.xyz/Projects"><img src="games.png" alt="Project preview" class="project-img"></a>
@@ -1142,18 +1167,14 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>About Me</h3>
-                    <p>A passionate web developer with a focus on creating elegant, functional digital experiences.</p>
+                    <h3 data-translate="Quick">Quick Links</h3>
+                    <a href="#" data-translate="Nav1">Home</a>
+                    <a href="#projects" data-translate="Nav2">Projects</a>
+                    <a href="https://a41k.xyz/Projects" data-translate="Nav3">Games</a>
+                    <a href="Old/A41K.github.io-main/index.html" data-translate="Nav4">Archive</a>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="#">Home</a>
-                    <a href="#projects">Projects</a>
-                    <a href="https://a41k.xyz/Projects">Games</a>
-                    <a href="Old/A41K.github.io-main/index.html">Archive</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
+                    <h3 data-translate="Cont">Contact</h3>
                     <p>Email: a41koutside@gmail.com</p>
                     <div class="social-links">
                         <a href="https://github.com/A41K" aria-label="GitHub">
@@ -1701,6 +1722,7 @@
     </div>
     
     <audio id="audioPlayer" src="song-placeholder.mp3"></audio>
+    <script src="translations.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
