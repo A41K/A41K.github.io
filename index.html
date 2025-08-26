@@ -5,935 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Andrew a41k - Web Developer Portfolio showcasing projects in web development and programming">
     <title>Andrew a41k | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="song-data.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="image/x-icon" href="Favicon.png">
+    <link rel="icon" type="image/x-icon" href="images/Favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #3a5683;
-            --secondary-color: #7c93b5;
-            --accent-color: #5e7aa9;
-            --background-color: #f5eee6;
-            --text-color: #333333;
-            --light-text: #666666;
-            --border-radius: 8px;
-            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-            transition: var(--transition);
-        }
-
-        a:hover {
-            color: var(--accent-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: #d1dded;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .logo {
-            font-weight: 600;
-            font-size: 1.25rem;
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            position: relative;
-            color: var(--text-color);
-            font-weight: 500;
-            padding: 8px 0;
-        }
-
-        .nav-links a.active {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--primary-color);
-            border-radius: 3px;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0 60px;
-            text-align: center;
-        }
-
-        .greeting-container {
-            margin-bottom: 40px;
-        }
-
-        .greeting {
-            font-family: 'Caveat', cursive;
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .greeting .hi {
-            color: #888;
-            font-size: 2.5rem;
-            transform: rotate(-5deg);
-        }
-
-        .greeting .hey {
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 4rem;
-            transform: rotate(-2deg);
-        }
-
-        .greeting .hello {
-            color: #999;
-            font-size: 3rem;
-        }
-
-        .tagline {
-            font-family: 'Caveat', cursive;
-            font-size: 1.75rem;
-            color: var(--light-text);
-            margin-bottom: 15px;
-        }
-
-        .subtitle {
-            font-family: 'Caveat', cursive;
-            font-size: 2.25rem;
-            margin-bottom: 30px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 28px;
-            border-radius: var(--border-radius);
-            font-weight: 500;
-            margin-top: 25px;
-            transition: var(--transition);
-            box-shadow: var(--box-shadow);
-        }
-
-        .cta-button:hover {
-            background-color: var(--accent-color);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Introduction */
-        .introduction {
-            max-width: 800px;
-            margin: 0 auto 60px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-
-        .introduction-title {
-            font-family: 'Caveat', cursive;
-            color: var(--primary-color);
-            font-size: 1.75rem;
-            margin-bottom: 15px;
-        }
-
-        .introduction p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-        .introduction a {
-            font-weight: 600;
-        }
-
-        /* Skills Section */
-        .skills {
-            padding: 60px 0;
-            background-color: rgba(209, 221, 237, 0.3);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            color: var(--primary-color);
-        }
-
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .skill-category {
-            flex: 1;
-            min-width: 250px;
-            background: white;
-            padding: 25px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-
-        .skill-category h3 {
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            font-size: 1.25rem;
-        }
-
-        .skill-item {
-            margin-bottom: 15px;
-        }
-
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-
-        .skill-bar {
-            height: 8px;
-            background-color: #e0e0e0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background-color: var(--accent-color);
-            border-radius: 4px;
-            transition: width 1s ease-in-out;
-        }
-
-        /* Projects */
-        .projects {
-            padding: 60px 0;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-bottom: 1px solid #eee;
-        }
-
-        .project-content {
-            padding: 20px;
-        }
-
-        .project-content h3 {
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-
-        .project-content p {
-            color: var(--light-text);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-
-        .tag {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 40px 0 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-
-        .footer-section p, .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.25rem;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-        }
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            position: relative;
-        }
-        
-        .music-player {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px; /* Mini player size */
-            height: 60px;
-            border-radius: 8px;
-            background: #222;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 1000;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .music-player.expanded {
-            width: 300px;
-            height: 400px;
-        }
-        
-        .player-button {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            background: #222;
-            z-index: 1001;
-            position: relative;
-        }
-        
-        .player-button img {
-            width: 40px;
-            height: 40px;
-            border-radius: 4px;
-        }
-        
-        .content-container {
-            height: 0;
-            overflow: hidden;
-            transition: height 0.3s ease;
-            background: #222;
-        }
-        
-        .music-player.expanded .content-container {
-            height: 340px;
-            overflow-y: auto;
-        }
-        
-        .content-container::-webkit-scrollbar {
-            width: 5px;
-        }
-        
-        .content-container::-webkit-scrollbar-thumb {
-            background: #555;
-            border-radius: 5px;
-        }
-        
-        .album-list {
-            display: block;
-        }
-        
-        .song-list {
-            display: none;
-            padding-left: 10px;
-        }
-        
-        .album {
-            padding: 12px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            border-bottom: 1px solid #333;
-            color: #fff;
-            transition: background 0.2s ease;
-        }
-        
-        .album:hover, .song:hover {
-            background: #333;
-        }
-        
-        .album img {
-            width: 40px;
-            height: 40px;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
-        
-        .album-info {
-            flex: 1;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .album-text {
-            flex: 1;
-        }
-        
-        .album-name {
-            font-weight: bold;
-            margin-bottom: 4px;
-            font-size: 14px;
-        }
-        
-        .artist-name {
-            font-size: 12px;
-            color: #aaa;
-        }
-        
-        .arrow {
-            margin-left: 10px;
-            font-size: 18px;
-            transition: transform 0.3s ease;
-        }
-        
-        .arrow.down {
-            transform: rotate(90deg);
-        }
-        
-        .song {
-            padding: 10px 12px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            border-bottom: 1px solid #2a2a2a;
-            color: #ddd;
-            font-size: 13px;
-        }
-        
-        .song.active {
-            background: #333;
-            color: #1DB954;
-        }
-        
-        .song-number {
-            width: 20px;
-            color: #888;
-            font-size: 12px;
-            margin-right: 8px;
-        }
-        
-        .song-name {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            flex: 1;
-        }
-        
-        .song.active .song-number {
-            color: #1DB954;
-        }
-        
-        .now-playing {
-            position: fixed;
-            bottom: 70px;
-            right: -70px;
-            background: #222;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            width: 250px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transform: translateX(300px);
-            transition: transform 0.4s ease;
-            z-index: 999;
-        }
-        
-        .now-playing.active {
-            transform: translateX(0);
-        }
-        
-        .now-playing-top {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .now-playing img {
-            width: 60px;
-            height: 60px;
-            border-radius: 5px;
-            margin-right: 15px;
-            object-fit: cover;
-        }
-        
-        .song-details {
-            flex: 1;
-            overflow: hidden;
-        }
-        
-        .song-title {
-            font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 4px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .song-artist {
-            font-size: 14px;
-            color: #ddd;
-            margin-bottom: 2px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .song-album {
-            font-size: 12px;
-            color: #aaa;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .playback-controls {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .controls-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .play-pause, .prev-track, .next-track {
-            width: 36px;
-            height: 36px;
-            background: #1DB954;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: #000;
-            font-size: 16px;
-        }
-        
-        .prev-track, .next-track {
-            width: 28px;
-            height: 28px;
-            background: #333;
-            color: #fff;
-            font-size: 12px;
-        }
-        
-        .progress-container {
-            flex: 1;
-            margin: 0 10px;
-            height: 8px;
-            background: #555;
-            border-radius: 4px;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        
-        .progress-bar {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            background: #1DB954;
-            width: 0%;
-        }
-        
-        .progress-handle {
-            position: absolute;
-            top: 50%;
-            width: 12px;
-            height: 12px;
-            background: #fff;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            display: none;
-        }
-        
-        .progress-container:hover .progress-handle {
-            display: block;
-        }
-        
-        .time {
-            font-size: 11px;
-            color: #aaa;
-            min-width: 40px;
-            text-align: right;
-        }
-        
-        .back-button {
-            display: none;
-            padding: 10px 15px;
-            color: #fff;
-            background: #333;
-            cursor: pointer;
-            font-size: 14px;
-            border-bottom: 1px solid #444;
-        }
-        
-        .floating-mini-player {
-            position: fixed;
-            bottom: 20px;
-            right: 90px;
-            width: 220px;
-            height: 60px;
-            background: #222;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            padding: 0 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transform: translateX(300px);
-            transition: transform 0.4s ease;
-            z-index: 998;
-            box-sizing: border-box;
-        }
-        
-        .floating-mini-player.active {
-            transform: translateX(0);
-        }
-        
-        .mini-album-art {
-            width: 44px;
-            height: 44px;
-            border-radius: 4px;
-            margin-right: 10px;
-            object-fit: cover;
-        }
-        
-        .mini-info {
-            flex: 1;
-            overflow: hidden;
-        }
-        
-        .mini-title {
-            font-size: 13px;
-            font-weight: bold;
-            color: #fff;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .mini-artist {
-            font-size: 12px;
-            color: #aaa;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .mini-controls {
-            display: flex;
-            gap: 8px;
-        }
-        
-        .mini-prev, .mini-play-pause, .mini-next {
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 12px;
-        }
-        
-        .mini-play-pause {
-            background: #1DB954;
-            color: #000;
-        }
-        
-        .mini-prev, .mini-next {
-            background: #333;
-            color: #fff;
-        }
-
-.volume-container {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    padding: 0 5px;
-}
-
-.volume-icon {
-    color: #aaa;
-    font-size: 14px;
-    margin-right: 8px;
-    cursor: pointer;
-}
-
-.volume-slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 4px;
-    background: #555;
-    border-radius: 2px;
-    outline: none;
-}
-
-.volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #1DB954;
-    cursor: pointer;
-}
-
-.volume-slider::-moz-range-thumb {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #1DB954;
-    cursor: pointer;
-}
-
-.mini-volume {
-    display: flex;
-    align-items: center;
-    margin-left: 6px;
-}
-
-.mini-volume-icon {
-    color: #aaa;
-    font-size: 12px;
-    margin-right: 4px;
-    cursor: pointer;
-}
-
-.mini-volume-slider {
-    -webkit-appearance: none;
-    width: 20px;
-    height: 3px;
-    background: #555;
-    border-radius: 2px;
-    outline: none;
-}
-
-.mini-volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #1DB954;
-    cursor: pointer;
-}
-
-.mini-volume-slider::-moz-range-thumb {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #1DB954;
-    cursor: pointer;
-}
-
-.language-switcher {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  top: 75px;
-}
-
-.language-switcher button {
-  background: #333;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.language-switcher button:hover {
-  background: #444;
-}
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .greeting {
-                font-size: 3rem;
-            }
-            
-            .greeting .hey {
-                font-size: 3.5rem;
-            }
-            
-            .greeting .hello {
-                font-size: 2.5rem;
-            }
-            
-            .tagline {
-                font-size: 1.5rem;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                flex-direction: column;
-                background-color: white;
-                width: 75%;
-                height: calc(100vh - 70px);
-                padding: 40px;
-                transition: right 0.3s ease;
-                box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-                gap: 2rem;
-            }
-            
-            .nav-links.active {
-                right: 0;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            .skill-category, .project-card {
-                min-width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .greeting {
-                font-size: 2.5rem;
-            }
-            
-            .greeting .hey {
-                font-size: 3rem;
-            }
-            
-            .greeting .hello {
-                font-size: 2rem;
-            }
-            
-            .introduction {
-                padding: 20px;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -943,8 +20,8 @@
                 <div class="nav-links" id="navLinks">
                     <a href="#" class="active" data-translate="Nav1">Home</a>
                     <a href="#projects" data-translate="Nav2">Projects</a>
-                    <a href="https://a41k.xyz/Projects" data-translate="Nav3">Games</a>
-                    <a href="Old/A41K.github.io-main/index.html" data-translate="Nav4">Archive</a>
+                    <a href="https://a41k.github.io/Projects" data-translate="Nav3">Games</a>
+                    <a href="http://a41k.me/Archive-Portfolio/" data-translate="Nav4">Archive</a>
                 </div>
 
                 <div class="language-switcher">
@@ -979,8 +56,9 @@
 
     <section class="introduction">
         <div class="container">
-            <h2 class="introduction-title" data-translate="Intro">Little introduction:</h2>
-            <p data-translate="about-text">Hello I'm Andrew a.k.a A41K. I've been making websites and programming for over half a decade now. This was mostly a passion project that I've tinkered about making. First I did it with <a href="Framer.html">Framer</a> then I thought "Maybe I should make something proper with my knowledge and the rest is now history. I think it's very important to say that this is a half-baked website with sub-par programming.</p>
+            <h2 class="introduction-title" data-translate="Intro">Little introduction about myself:</h2>
+            <p data-translate="about-text">Welcome to my humble abode. This website was made because my projects grew bigger and more in amount so I had to make a portfolio.</p>
+            <p data-translate="me">I'm Andrew or A41K as known online. I've been making sites for 4-5 years now and started making them really and uploading for almost a year now. I do mostly for fun but also because I'm learning a lot</p>
         </div>
     </section>
 
@@ -1002,10 +80,10 @@
                     <div class="skill-item">
                         <div class="skill-name">
                             <span>JavaScript</span>
-                            <span>85%</span>
+                            <span>95%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
+                            <div class="skill-progress" style="width: 95%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -1070,11 +148,11 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>Framer</span>
-                            <span>75%</span>
+                            <span>Assembly</span>
+                            <span>30%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
+                            <div class="skill-progress" style="width: 30%"></div>
                         </div>
                     </div>
                 </div>
@@ -1087,10 +165,10 @@
             <h2 class="section-title" data-translate="Prot">Featured Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <a href="https://a41k.github.io/Projects/"><img src="games.png" alt="Project preview" class="project-img"></a>
+                    <a href="https://a41k.github.io/Projects/"><img src="images/games.png" alt="Project preview" class="project-img"></a>
                     <div class="project-content">
                         <h3>Personal Games Portfolio</h3>
-                        <p>A custom-built game portfolio website showcasing my skills and projects.</p>
+                        <p>Another website dedicated to my own games/other projects I made over the months</p>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
@@ -1099,10 +177,10 @@
                     </div>
                 </div>
                 <div class="project-card">
-                <a href="https://a41k.github.io/Hackathon2/"><img src="valve.png" alt="Project preview" class="project-img"></a>
+                <a href="https://a41k.github.io/Hackathon2/"><img src="images/valve.png" alt="Project preview" class="project-img"></a>
                     <div class="project-content">
                         <h3>Hackathon Project</h3>
-                        <p>A collaborative project built during a 48-hour hackathon event.</p>
+                        <p>A two hand made project for the Codédex hackathon</p>
                         <div class="project-tags">
                             <span class="tag">React</span>
                             <span class="tag">Node.js</span>
@@ -1111,10 +189,10 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <a href="https://a41k.framer.website"><img src="framer.png" alt="Project preview" class="project-img"></a>
+                    <a href="https://a41k.framer.website"><img src="images/framer.png" alt="Project preview" class="project-img"></a>
                     <div class="project-content">
                         <h3>Framer Prototype</h3>
-                        <p>Interactive prototype designed and built with Framer.</p>
+                        <p>This was my original portfolio. Now this is the new one :D</p>
                         <div class="project-tags">
                             <span class="tag">Framer</span>
                             <span class="tag">UI/UX</span>
@@ -1123,10 +201,10 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <a href="https://a41k.github.io/stamps/index.html"><img src="Stamp.png" alt="Project preview" class="project-img"></a>
+                    <a href="https://a41k.github.io/stamps/index.html"><img src="images/Stamp.png" alt="Project preview" class="project-img"></a>
                     <div class="project-content">
                         <h3>School Project 1</h3>
-                        <p>A simple stamp store built with HTML, CSS, and JavaScript.</p>
+                        <p>Mostly a school project but yeah also made this so lets showcase it</p>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
@@ -1135,10 +213,10 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <a href="https://sport4life.github.io/"><img src="Sport4life.png" alt="Project preview" class="project-img"></a>
+                    <a href="https://sport4life.github.io/"><img src="images/Sport4life.png" alt="Project preview" class="project-img"></a>
                     <div class="project-content">
                         <h3>School Project 2</h3>
-                        <p>A website for out school project company</p>
+                        <p>A website for our school project company</p>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
@@ -1147,7 +225,7 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <a href="https://a41k.github.io/SummerHackathon/"><img src="sipnplay.png" alt="Project preview" class="project-img"></a>
+                    <a href="https://a41k.github.io/SummerHackathon/"><img src="images/sipnplay.png" alt="Project preview" class="project-img"></a>
                     <div class="project-content">
                         <h3>Hackathon 1</h3>
                         <p>A very badly made first Hackathon project</p>
@@ -1170,7 +248,7 @@
                     <a href="#" data-translate="Nav1">Home</a>
                     <a href="#projects" data-translate="Nav2">Projects</a>
                     <a href="https://a41k.github.io/Projects/" data-translate="Nav3">Games</a>
-                    <a href="Old/A41K.github.io-main/index.html" data-translate="Nav4">Archive</a>
+                    <a href="http://a41k.me/Archive-Portfolio/" data-translate="Nav4">Archive</a>
                 </div>
                 <div class="footer-section">
                     <h3 data-translate="Cont">Contact</h3>
@@ -1202,483 +280,22 @@
 
     <div class="music-player" id="musicPlayer">
         <div class="player-button" id="playerButton">
-            <img src="Music.avif" alt="Music Player">
+            <img src="images/Music.avif" alt="Music Player">
         </div>
         
         <div class="content-container" id="contentContainer">
             <div class="back-button" id="backButton">← Back to Albums</div>
-            
             <div class="album-list" id="albumList">
-                <div class="album" data-album-id="blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png">
-                    <img src="Song/covers/Blonde.png" alt="Album cover">
-                    <div class="album-info">
-                        <div class="album-text">
-                            <div class="album-name">Blonde</div>
-                            <div class="artist-name">Frank Ocean</div>
-                        </div>
-                        <div class="arrow">›</div>
-                    </div>
-                </div>
-                
-                <div class="album" data-album-id="damn" data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN.png">
-                    <img src="Song/covers/DAMN.png" alt="Album cover">
-                    <div class="album-info">
-                        <div class="album-text">
-                            <div class="album-name">DAMN.</div>
-                            <div class="artist-name">Kendrick Lamar</div>
-                        </div>
-                        <div class="arrow">›</div>
-                    </div>
-                </div>
-                
-                <div class="album" data-album-id="channel-orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png">
-                    <img src="Song/covers/channelORANGE.png" alt="Album cover">
-                    <div class="album-info">
-                        <div class="album-text">
-                            <div class="album-name">Channel Orange</div>
-                            <div class="artist-name">Frank Ocean</div>
-                        </div>
-                        <div class="arrow">›</div>
-                    </div>
-                </div>
-                
-                <div class="album" data-album-id="mr-morale" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png">
-                    <img src="Song/covers/MrMorale.png" alt="Album cover">
-                    <div class="album-info">
-                        <div class="album-text">
-                            <div class="album-name">Mr. Morale & The Big Steppers</div>
-                            <div class="artist-name">Kendrick Lamar</div>
-                        </div>
-                        <div class="arrow">›</div>
-                    </div>
-                </div>
-                
-                <div class="album" data-album-id="tpab" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png">
-                    <img src="Song/covers/TPAB.png" alt="Album cover">
-                    <div class="album-info">
-                        <div class="album-text">
-                            <div class="album-name">To Pimp A Butterfly</div>
-                            <div class="artist-name">Kendrick Lamar</div>
-                        </div>
-                        <div class="arrow">›</div>
-                    </div>
-                </div>
-                
-                <div class="album" data-album-id="gkmc" data-artist="Kendrick Lamar" data-cover="Song/covers/GKMC.png">
-                    <img src="Song/covers/GKMC.png" alt="Album cover">
-                    <div class="album-info">
-                        <div class="album-text">
-                            <div class="album-name">good kid, m.A.A.d city</div>
-                            <div class="artist-name">Kendrick Lamar</div>
-                        </div>
-                        <div class="arrow">›</div>
-                    </div>
-                </div>
+                <!-- Albums will be dynamically loaded here -->
             </div>
-            
             <!-- Song Lists for Each Album -->
-            <div class="song-list" id="songs-blonde">
-            <div class="song" data-title="Nikes" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Nikes.mp3">
-                <div class="song-number">1</div>
-                <div class="song-name">Nikes</div>
+            <div class="song-list" id="songs-container">
+                <!-- Songs will be dynamically loaded from song-data.js -->
             </div>
-            <div class="song" data-title="Ivy" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Ivy.mp3">
-                <div class="song-number">2</div>
-                <div class="song-name">Ivy</div>
-            </div>
-            <div class="song" data-title="Pink + White" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Pink + White.mp3">
-                <div class="song-number">3</div>
-                <div class="song-name">Pink + White</div>
-            </div>
-            <div class="song" data-title="Be Yourself" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Be Yourself.mp3">
-                <div class="song-number">4</div>
-                <div class="song-name">Be Yourself</div>
-            </div>
-            <div class="song" data-title="Solo" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Solo.mp3">
-                <div class="song-number">5</div>
-                <div class="song-name">Solo</div>
-            </div>
-            <div class="song" data-title="Skyline To" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Skyline To.mp3">
-                <div class="song-number">6</div>
-                <div class="song-name">Skyline To</div>
-            </div>
-            <div class="song" data-title="Self Control" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Self Control.mp3">
-                <div class="song-number">7</div>
-                <div class="song-name">Self Control</div>
-            </div>
-            <div class="song" data-title="Good Guy" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Good Guy.mp3">
-                <div class="song-number">8</div>
-                <div class="song-name">Good Guy</div>
-            </div>
-            <div class="song" data-title="Nights" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Nights.mp3">
-                <div class="song-number">9</div>
-                <div class="song-name">Nights</div>
-            </div>
-            <div class="song" data-title="Solo (Reprise)" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Solo (Reprise).mp3">
-                <div class="song-number">10</div>
-                <div class="song-name">Solo (Reprise)</div>
-            </div>
-            <div class="song" data-title="Pretty Sweet" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Pretty Sweet.mp3">
-                <div class="song-number">11</div>
-                <div class="song-name">Pretty Sweet</div>
-            </div>
-            <div class="song" data-title="Facebook Story" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Facebook Story.mp3">
-                <div class="song-number">12</div>
-                <div class="song-name">Facebook Story</div>
-            </div>
-            <div class="song" data-title="Close to You" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Close to You.mp3">
-                <div class="song-number">13</div>
-                <div class="song-name">Close to You</div>
-            </div>
-            <div class="song" data-title="White Ferrari" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/White Ferrari.mp3">
-                <div class="song-number">14</div>
-                <div class="song-name">White Ferrari</div>
-            </div>
-            <div class="song" data-title="Seigfried" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Seigfried.mp3">
-                <div class="song-number">15</div>
-                <div class="song-name">Seigfried</div>
-            </div>
-            <div class="song" data-title="Godspeed" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Godspeed.mp3">
-                <div class="song-number">16</div>
-                <div class="song-name">Godspeed</div>
-            </div>
-            <div class="song" data-title="Futura Free" data-album="Blonde" data-artist="Frank Ocean" data-cover="Song/covers/Blonde.png" data-audio="Song/Blonde/Futura Free.mp3">
-                <div class="song-number">17</div>
-                <div class="song-name">Futura Free</div>
-            </div>
-         </div>
-            
-            <div class="song-list" id="songs-damn">
-                <div class="song" data-title="BLOOD." data-album="DAMN." data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN..png" data-audio="Song/DAMN/BLOOD.mp3">
-                    <div class="song-number">1</div>
-                    <div class="song-name">BLOOD.</div>
-                </div>
-                <div class="song" data-title="DNA." data-album="DAMN." data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN.png" data-audio="Song/DAMN/DNA.mp3">
-                    <div class="song-number">2</div>
-                    <div class="song-name">DNA.</div>
-                </div>
-                <div class="song" data-title="YAH." data-album="DAMN." data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN.png" data-audio="Song/DAMN/YAH.mp3">
-                    <div class="song-number">3</div>
-                    <div class="song-name">YAH.</div>
-                </div>
-                <div class="song" data-title="ELEMENT." data-album="DAMN." data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN.png" data-audio="Song/DAMN/ELEMENT.mp3">
-                    <div class="song-number">4</div>
-                    <div class="song-name">ELEMENT.</div>
-                </div>
-                <div class="song" data-title="FEEL." data-album="DAMN." data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN.png" data-audio="Song/DAMN/FEEL.mp3">
-                    <div class="song-number">5</div>
-                    <div class="song-name">FEEL.</div>
-                </div>
-                <div class="song" data-title="LOYALTY." data-album="DAMN." data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN.png" data-audio="Song/DAMN/LOYALTY.mp3">
-                    <div class="song-number">6</div>
-                    <div class="song-name">LOYALTY.</div>
-                </div>
-                <div class="song" data-title="PRIDE." data-album="DAMN." data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN.png" data-audio="Song/DAMN/PRIDE.mp3">
-                    <div class="song-number">7</div>
-                    <div class="song-name">PRIDE.</div>
-                </div>
-                <div class="song" data-title="HUMBLE." data-album="DAMN." data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN.png" data-audio="Song/DAMN/HUMBLE.mp3">
-                    <div class="song-number">8</div>
-                    <div class="song-name">HUMBLE.</div>
-                </div>
-                <div class="song" data-title="LUST." data-album="DAMN." data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN.png" data-audio="Song/DAMN/LUST.mp3">
-                    <div class="song-number">9</div>
-                    <div class="song-name">LUST.</div>
-                </div>
-                <div class="song" data-title="LOVE." data-album="DAMN." data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN.png" data-audio="Song/DAMN/LOVE.mp3">
-                    <div class="song-number">10</div>
-                    <div class="song-name">LOVE.</div>
-                </div>
-                <div class="song" data-title="XXX." data-album="DAMN." data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN.png" data-audio="Song/DAMN/XXX.mp3">
-                    <div class="song-number">11</div>
-                    <div class="song-name">XXX.</div>
-                </div>
-                <div class="song" data-title="FEAR." data-album="DAMN." data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN.png" data-audio="Song/DAMN/FEAR.mp3">
-                    <div class="song-number">12</div>
-                    <div class="song-name">FEAR.</div>
-                </div>
-                <div class="song" data-title="GOD." data-album="DAMN." data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN.png" data-audio="Song/DAMN/GOD.mp3">
-                    <div class="song-number">13</div>
-                    <div class="song-name">GOD.</div>
-                </div>
-                <div class="song" data-title="DUCKWORTH." data-album="DAMN." data-artist="Kendrick Lamar" data-cover="Song/covers/DAMN.png" data-audio="Song/DAMN/DUCKWORTH.mp3">
-                    <div class="song-number">14</div>
-                    <div class="song-name">DUCKWORTH.</div>
-                </div>
-                
-            </div>
-            
-            <div class="song-list" id="songs-channel-orange">
-                <div class="song" data-title="Start" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Start.mp3">
-                    <div class="song-number">1</div>
-                    <div class="song-name">Start</div>
-                </div>
-                <div class="song" data-title="Thinkin Bout You" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Thinkin Bout You.mp3">
-                    <div class="song-number">2</div>
-                    <div class="song-name">Thinkin Bout You</div>
-                </div>
-                <div class="song" data-title="Fertilizer" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Fertilizer.mp3">
-                    <div class="song-number">3</div>
-                    <div class="song-name">Fertilizer</div>
-                </div>
-                <div class="song" data-title="Sierra Leone" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Sierra Leone.mp3">
-                    <div class="song-number">4</div>
-                    <div class="song-name">Sierra Leone</div>
-                </div>
-                <div class="song" data-title="Sweet Life" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Sweet Life.mp3">
-                    <div class="song-number">5</div>
-                    <div class="song-name">Sweet Life</div>
-                </div>
-                <div class="song" data-title="Not Just Money" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Not Just Money.mp3">
-                    <div class="song-number">6</div>
-                    <div class="song-name">Not Just Money</div>
-                </div>
-                <div class="song" data-title="Super Rich Kids" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Super Rich Kids.mp3">
-                    <div class="song-number">7</div>
-                    <div class="song-name">Super Rich Kids</div>
-                </div>
-                <div class="song" data-title="Pilot Jones" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Pilot Jones.mp3">
-                    <div class="song-number">8</div>
-                    <div class="song-name">Pilot Jones</div>
-                </div>
-                <div class="song" data-title="Crack Rock" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Crack Rock.mp3">
-                    <div class="song-number">9</div>
-                    <div class="song-name">Crack Rock</div>
-                </div>
-                <div class="song" data-title="Pyramids" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Pyramids.mp3">
-                    <div class="song-number">10</div>
-                    <div class="song-name">Pyramids</div>
-                </div>
-                <div class="song" data-title="Lost" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Lost.mp3">
-                    <div class="song-number">11</div>
-                    <div class="song-name">Lost</div>
-                </div>
-                <div class="song" data-title="White" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/White.mp3">
-                    <div class="song-number">12</div>
-                    <div class="song-name">White</div>
-                </div>
-                <div class="song" data-title="Monks" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Monks.mp3">
-                    <div class="song-number">13</div>
-                    <div class="song-name">Monks</div>
-                </div>
-                <div class="song" data-title="Bad Religion" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Bad Religion.mp3">
-                    <div class="song-number">14</div>
-                    <div class="song-name">Bad Religion</div>
-                </div>
-                <div class="song" data-title="Pink Matter" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Pink Matter.mp3">
-                    <div class="song-number">15</div>
-                    <div class="song-name">Pink Matter</div>
-                </div>
-                <div class="song" data-title="Forrest Gump" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/Forrest Gump.mp3">
-                    <div class="song-number">16</div>
-                    <div class="song-name">Forrest Gump</div>
-                </div>
-                <div class="song" data-title="End" data-album="Channel Orange" data-artist="Frank Ocean" data-cover="Song/covers/channelORANGE.png" data-audio="Song/ChannelOrange/End.mp3">
-                    <div class="song-number">17</div>
-                    <div class="song-name">End</div>
-                </div>
-                
-            </div>
-            
-            <div class="song-list" id="songs-mr-morale">
-                <div class="song" data-title="United In Grief" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/United In Grief.mp3">
-                    <div class="song-number">1</div>
-                    <div class="song-name">United In Grief</div>
-                </div>
-                <div class="song" data-title="N95" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/N95.mp3">
-                    <div class="song-number">2</div>
-                    <div class="song-name">N95</div>
-                </div>
-                <div class="song" data-title="Worldwide Steppers" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Worldwide Steppers.mp3">
-                    <div class="song-number">3</div>
-                    <div class="song-name">Worldwide Steppers</div>
-                </div>
-                <div class="song" data-title="Die Hard" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Die Hard.mp3">
-                    <div class="song-number">4</div>
-                    <div class="song-name">Die Hard</div>
-                </div>
-                <div class="song" data-title="Father Time" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Father Time.mp3">
-                    <div class="song-number">5</div>
-                    <div class="song-name">Father Time</div>
-                </div>
-                <div class="song" data-title="Rich (Interlude)" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Rich (Interlude).mp3">
-                    <div class="song-number">6</div>
-                    <div class="song-name">Rich (Interlude)</div>
-                </div>
-                <div class="song" data-title="Rich Spirit" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Rich Spirit.mp3">
-                    <div class="song-number">7</div>
-                    <div class="song-name">Rich Spirit</div>
-                </div>
-                <div class="song" data-title="We Cry Together" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/We Cry Together.mp3">
-                    <div class="song-number">8</div>
-                    <div class="song-name">We Cry Together</div>
-                </div>
-                <div class="song" data-title="Purple Hearts" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Purple Hearts.mp3">
-                    <div class="song-number">9</div>
-                    <div class="song-name">Purple Hearts</div>
-                </div>
-                <div class="song" data-title="Count Me Out" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Count Me Out.mp3">
-                    <div class="song-number">10</div>
-                    <div class="song-name">Count Me Out</div>
-                </div>
-                <div class="song" data-title="Crown" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Crown.mp3">
-                    <div class="song-number">11</div>
-                    <div class="song-name">Crown</div>
-                </div>
-                <div class="song" data-title="Silent Hill" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Silent Hill.mp3">
-                    <div class="song-number">12</div>
-                    <div class="song-name">Silent Hill</div>
-                </div>
-                <div class="song" data-title="Savior (Interlude)" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Savior (Interlude).mp3">
-                    <div class="song-number">13</div>
-                    <div class="song-name">Savior (Interlude)</div>
-                </div>
-                <div class="song" data-title="Savior" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Savior.mp3">
-                    <div class="song-number">14</div>
-                    <div class="song-name">Savior</div>
-                </div>
-                <div class="song" data-title="Auntie Diaries" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Auntie Diaries.mp3">
-                    <div class="song-number">15</div>
-                    <div class="song-name">Auntie Diaries</div>
-                </div>
-                <div class="song" data-title="Mr. Morale" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Mr. Morale.mp3">
-                    <div class="song-number">16</div>
-                    <div class="song-name">Mr. Morale</div>
-                </div>
-                <div class="song" data-title="Mother I Sober" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Mother I Sober.mp3">
-                    <div class="song-number">17</div>
-                    <div class="song-name">Mother I Sober</div>
-                </div>
-                <div class="song" data-title="Mirror" data-album="Mr. Morale & The Big Steppers" data-artist="Kendrick Lamar" data-cover="Song/covers/MrMorale.png" data-audio="Song/MrMorale/Mirror.mp3">
-                    <div class="song-number">18</div>
-                    <div class="song-name">Mirror</div>
-                </div>
-            </div>
-            
-            <div class="song-list" id="songs-tpab">
-                <div class="song" data-title="Wesley's Theory" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/Wesley's Theory.mp3">
-                    <div class="song-number">1</div>
-                    <div class="song-name">Wesley's Theory</div>
-                </div>
-                <div class="song" data-title="For Free? (Interlude)" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/For Free (Interlude).mp3">
-                    <div class="song-number">2</div>
-                    <div class="song-name">For Free? (Interlude)</div>
-                </div>
-                <div class="song" data-title="King Kunta" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/King Kunta.mp3">
-                    <div class="song-number">3</div>
-                    <div class="song-name">King Kunta</div>
-                </div>
-                <div class="song" data-title="Institutionalized" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/Institutionalized.mp3">
-                    <div class="song-number">4</div>
-                    <div class="song-name">Institutionalized</div>
-                </div>
-                <div class="song" data-title="These Walls" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/These Walls.mp3">
-                    <div class="song-number">5</div>
-                    <div class="song-name">These Walls</div>
-                </div>
-                <div class="song" data-title="u" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/u.mp3">
-                    <div class="song-number">6</div>
-                    <div class="song-name">u</div>
-                </div>
-                <div class="song" data-title="Alright" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/Alright.mp3">
-                    <div class="song-number">7</div>
-                    <div class="song-name">Alright</div>
-                </div>
-                <div class="song" data-title="For Sale? (Interlude)" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/For Sale (Interlude).mp3">
-                    <div class="song-number">8</div>
-                    <div class="song-name">For Sale? (Interlude)</div>
-                </div>
-                <div class="song" data-title="Momma" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/Momma.mp3">
-                    <div class="song-number">9</div>
-                    <div class="song-name">Momma</div>
-                </div>
-                <div class="song" data-title="Hood Politics" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/Hood Politics.mp3">
-                    <div class="song-number">10</div>
-                    <div class="song-name">Hood Politics</div>
-                </div>
-                <div class="song" data-title="How Much A Dollar Cost" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/How Much A Dollar Cost.mp3">
-                    <div class="song-number">11</div>
-                    <div class="song-name">How Much A Dollar Cost</div>
-                </div>
-                <div class="song" data-title="Complexion (A Zulu Love)" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/Complexion (A Zulu Love).mp3">
-                    <div class="song-number">12</div>
-                    <div class="song-name">Complexion (A Zulu Love)</div>
-                </div>
-                <div class="song" data-title="The Blacker The Berry" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/The Blacker The Berry.mp3">
-                    <div class="song-number">13</div>
-                    <div class="song-name">The Blacker The Berry</div>
-                </div>
-                <div class="song" data-title="You Ain't Gotta Lie (Momma Said)" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/You Ain't Gotta Lie (Momma Said).mp3">
-                    <div class="song-number">14</div>
-                    <div class="song-name">You Ain't Gotta Lie (Momma Said)</div>
-                </div>
-                <div class="song" data-title="i" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/i.mp3">
-                    <div class="song-number">15</div>
-                    <div class="song-name">i</div>
-                </div>
-                <div class="song" data-title="Mortal Man" data-album="To Pimp A Butterfly" data-artist="Kendrick Lamar" data-cover="Song/covers/TPAB.png" data-audio="Song/TPAB/Mortal Man.mp3">
-                    <div class="song-number">16</div>
-                    <div class="song-name">Mortal Man</div>
-                </div>
-            </div>
-                
-            
-            <div class="song-list" id="songs-gkmc">
-                <div class="song" data-title="Sherane a.k.a Master Splinter's Daughter" data-album="good kid, m.A.A.d city" data-artist="Kendrick Lamar" data-cover="Song/covers/GKMC.png" data-audio="Song/GKMC/Sherane.mp3">
-                    <div class="song-number">1</div>
-                    <div class="song-name">Sherane a.k.a Master Splinter's Daughter</div>
-                </div>
-                <div class="song" data-title="Bitch, Don't Kill My Vibe" data-album="good kid, m.A.A.d city" data-artist="Kendrick Lamar" data-cover="Song/covers/GKMC.png" data-audio="Song/GKMC/Bitch, Don’t Kill My Vibe.mp3">
-                    <div class="song-number">2</div>
-                    <div class="song-name">Bitch, Don't Kill My Vibe</div>
-                </div>
-                <div class="song" data-title="Backseat Freestyle" data-album="good kid, m.A.A.d city" data-artist="Kendrick Lamar" data-cover="Song/covers/GKMC.png" data-audio="Song/GKMC/Backseat Freestyle.mp3">
-                    <div class="song-number">3</div>
-                    <div class="song-name">Backseat Freestyle</div>
-                </div>
-                <div class="song" data-title="The Art of Peer Pressure" data-album="good kid, m.A.A.d city" data-artist="Kendrick Lamar" data-cover="Song/covers/GKMC.png" data-audio="Song/GKMC/The Art of Peer Pressure.mp3">
-                    <div class="song-number">4</div>
-                    <div class="song-name">The Art of Peer Pressure</div>
-                </div>
-                <div class="song" data-title="Money Trees" data-album="good kid, m.A.A.d city" data-artist="Kendrick Lamar" data-cover="Song/covers/GKMC.png" data-audio="Song/GKMC/Money Trees.mp3">
-                    <div class="song-number">5</div>
-                    <div class="song-name">Money Trees</div>
-                </div>
-                    <div class="song" data-title="Poetic Justice" data-album="good kid, m.A.A.d city" data-artist="Kendrick Lamar" data-cover="Song/covers/GKMC.png" data-audio="Song/GKMC/Poetic Justice.mp3">
-                        <div class="song-number">6</div>
-                        <div class="song-name">Poetic Justice</div>
-                    </div>
-                    <div class="song" data-title="good kid" data-album="good kid, m.A.A.d city" data-artist="Kendrick Lamar" data-cover="Song/covers/GKMC.png" data-audio="Song/GKMC/good kid.mp3">
-                        <div class="song-number">7</div>
-                        <div class="song-name">good kid</div>
-                    </div>
-                    <div class="song" data-title="m.A.A.d city" data-album="good kid, m.A.A.d city" data-artist="Kendrick Lamar" data-cover="Song/covers/GKMC.png" data-audio="Song/GKMC/m.A.A.d city.mp3">
-                        <div class="song-number">8</div>
-                        <div class="song-name">m.A.A.d city</div>
-                    </div>
-                    <div class="song" data-title="Swimming Pools (Drank)" data-album="good kid, m.A.A.d city" data-artist="Kendrick Lamar" data-cover="Song/covers/GKMC.png" data-audio="Song/GKMC/Swimming Pools (Drank).mp3">
-                        <div class="song-number">9</div>
-                        <div class="song-name">Swimming Pools (Drank)</div>
-                    </div>
-                    <div class="song" data-title="Sing About Me, I'm Dying of Thirst" data-album="good kid, m.A.A.d city" data-artist="Kendrick Lamar" data-cover="Song/covers/GKMC.png" data-audio="Song/GKMC/SAMIDOT.mp3">
-                        <div class="song-number">10</div>
-                        <div class="song-name">Sing About Me, I'm Dying of Thirst</div>
-                    </div>
-                    <div class="song" data-title="Real" data-album="good kid, m.A.A.d city" data-artist="Kendrick Lamar" data-cover="Song/covers/GKMC.png" data-audio="Song/GKMC/Real.mp3">
-                        <div class="song-number">11</div>
-                        <div class="song-name">Real</div>
-                    </div>
-                    <div class="song" data-title="Compton" data-album="good kid, m.A.A.d city" data-artist="Kendrick Lamar" data-cover="Song/covers/GKMC.png" data-audio="Song/GKMC/Compton.mp3">
-                        <div class="song-number">12</div>
-                        <div class="song-name">Compton</div>
-                    </div>                    
-                </div>
-            </div>
-        </div>
-    </div>
+
     
     <div class="floating-mini-player" id="floatingMiniPlayer">
-        <img id="floatingAlbumCover" class="mini-album-art" src="Music.avif" alt="Album cover">
+          <img id="floatingAlbumCover" class="mini-album-art" src="Music.avif" alt="Album cover">
         <div class="mini-info">
             <div class="mini-title" id="floatingTitle">Not Playing</div>
             <div class="mini-artist" id="floatingArtist"></div>
@@ -1695,7 +312,7 @@
     
     <div class="now-playing" id="nowPlaying">
         <div class="now-playing-top">
-            <img id="albumCover" src="/api/placeholder/60/60" alt="Album cover">
+            <img id="albumCover" src="Song/covers/Disc.png" alt="Album cover">
             <div class="song-details">
                 <div class="song-title" id="songTitle"></div>
                 <div class="song-artist" id="songArtist"></div>
@@ -1720,7 +337,8 @@
         </div>
     </div>
     
-    <audio id="audioPlayer" src="song-placeholder.mp3"></audio>
+    <audio id="audioPlayer"></audio>
+     <script src="song-data.js"></script>
     <script src="translations.js"></script>
 
     <script>
@@ -1743,9 +361,9 @@
             const volumeSlider = document.getElementById('volumeSlider');
             const miniVolumeSlider = document.getElementById('miniVolumeSlider');
             
-            // Get all albums and songs
+            // Get all albums
             const albums = document.querySelectorAll('.album');
-            const songs = document.querySelectorAll('.song');
+            let songs = []; // This will be populated dynamically
             
             // Audio Player and Controls
             const audioPlayer = document.getElementById('audioPlayer');
@@ -1767,14 +385,75 @@
             
             // Create a map of album songs for easy navigation
             const albumSongsMap = {};
-            albums.forEach(album => {
-                const albumId = album.getAttribute('data-album-id');
-                const songs = document.querySelectorAll(`#songs-${albumId} .song`);
-                albumSongsMap[albumId] = Array.from(songs);
-            });
+
+
             
             // Store last viewed song list to return to it when reopening the player
             let lastViewedSongList = null;
+
+            // Function to load songs from song-data.js
+            function loadSongs() {
+                const container = document.getElementById('songs-container');
+                container.innerHTML = ''; // Clear existing songs
+                window.albums.forEach(album => {
+                    album.songs.forEach((song, index) => {
+                        const songDiv = document.createElement('div');
+                        songDiv.className = 'song';
+                        songDiv.setAttribute('data-title', song.title);
+                        songDiv.setAttribute('data-album', album.name);
+                        songDiv.setAttribute('data-artist', album.artist);
+                        songDiv.setAttribute('data-cover', album.cover);
+                        songDiv.setAttribute('data-audio', song.path);
+
+                        songDiv.innerHTML = `
+                            <div class="song-number">${index + 1}</div>
+                            <div class="song-name">${song.title}</div>
+                        `;
+                        container.appendChild(songDiv);
+                        songs.push(songDiv); // Add to the global songs array
+                    });
+                });
+                attachSongEventListeners();
+            }
+
+            function attachSongEventListeners() {
+                const songs = document.querySelectorAll('.song');
+                songs.forEach(song => {
+                    // Remove existing listeners to prevent duplicates
+                    song.removeEventListener('click', handleSongClick);
+                    song.addEventListener('click', handleSongClick);
+                });
+            }
+
+            function handleSongClick(event) {
+                const songDiv = event.currentTarget;
+                const title = songDiv.getAttribute('data-title');
+                const album = songDiv.getAttribute('data-album');
+                const artist = songDiv.getAttribute('data-artist');
+                const cover = songDiv.getAttribute('data-cover');
+                const audioPath = songDiv.getAttribute('data-audio');
+
+                // Update now playing section
+                document.getElementById('songTitle').textContent = title;
+                document.getElementById('songArtist').textContent = artist;
+                document.getElementById('songAlbum').textContent = album;
+                document.getElementById('albumCover').src = cover;
+
+                // Update mini player
+                document.getElementById('floatingTitle').textContent = title;
+                document.getElementById('floatingArtist').textContent = artist;
+                document.getElementById('floatingAlbumCover').src = cover;
+
+                // Set audio source and play
+                audioPlayer.src = audioPath;
+                audioPlayer.play();
+                playPauseBtn.textContent = '⏸';
+                floatingPlayPause.textContent = '⏸';
+
+                // Show now playing section and mini player
+                nowPlaying.style.display = 'flex';
+                floatingMiniPlayer.style.display = 'flex';
+            }
             
             // Toggle player expansion when clicking the button
             playerButton.addEventListener('click', function(e) {
@@ -1803,26 +482,7 @@
                     volumeSlider.value = this.value;
                 });
 
-                // Ensure double-click is working correctly on the playerButton
-                document.addEventListener('DOMContentLoaded', function() {
-                    
-                    // Replace the dblclick and hinge events with hover behavior
-                    musicPlayer.addEventListener('mouseenter', function() {
-                        if (!musicPlayer.classList.contains('expanded')) {
-                            musicPlayer.classList.add('expanded');
-                        }
-                    });
-                    
-                    musicPlayer.addEventListener('mouseleave', function() {
-                        // Only collapse if we're not in song selection mode
-                        if (musicPlayer.classList.contains('expanded') && 
-                            albumList.style.display === 'block' && 
-                            backButton.style.display === 'none') {
-                            musicPlayer.classList.remove('expanded');
-                        }
-                    });
 
-                });;
                             
             // Handle album click - show songs
             albums.forEach(album => {
@@ -1853,52 +513,73 @@
                 backButton.style.display = 'none';
             });
             
-            // Play a song when clicked
-            songs.forEach(song => {
-                song.addEventListener('click', function() {
-                    // Get song data
-                    const title = this.getAttribute('data-title');
-                    const album = this.getAttribute('data-album');
-                    const artist = this.getAttribute('data-artist');
-                    const cover = this.getAttribute('data-cover');
-                    const audio = this.getAttribute('data-audio');
-                    
-                    // Update currently playing song
-                    currentSong = this;
-                    
-                    // Update active song class
-                    songs.forEach(s => s.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Update player info
-                    albumCover.src = cover;
-                    songTitle.textContent = title;
-                    songArtist.textContent = artist;
-                    songAlbum.textContent = album;
-                    
-                    // Update floating player
-                    floatingAlbumCover.src = cover;
-                    floatingTitle.textContent = title;
-                    floatingArtist.textContent = artist;
-                    
-                    // Set audio source and play
-                    audioPlayer.src = audio;
-                    audioPlayer.play()
-                        .then(() => {
-                            playPauseBtn.innerHTML = '❚❚';
-                            floatingPlayPause.innerHTML = '❚❚';
-                        })
-                        .catch(error => {
-                            console.error('Error playing audio:', error);
-                        });
-                    
-                    // Show now playing
-                    nowPlaying.classList.add('active');
-                    floatingMiniPlayer.classList.add('active');
-                });
-            });
-            
-            // Play/Pause functionality
+            // Function to load songs from song-data.js
+             function loadSongs() {
+                 const container = document.getElementById('songs-container');
+                 container.innerHTML = ''; // Clear existing songs
+                 window.albums.forEach(album => {
+                     album.songs.forEach((song, index) => {
+                         const songDiv = document.createElement('div');
+                         songDiv.className = 'song';
+                         songDiv.setAttribute('data-title', song.title);
+                         songDiv.setAttribute('data-album', album.name);
+                         songDiv.setAttribute('data-artist', album.artist);
+                         songDiv.setAttribute('data-cover', album.cover);
+                         songDiv.setAttribute('data-audio', song.path);
+                         
+                         songDiv.innerHTML = `
+                             <div class="song-number">${index + 1}</div>
+                             <div class="song-name">${song.title}</div>
+                         `;
+                         container.appendChild(songDiv);
+                     });
+                 });
+                 attachSongEventListeners();
+             }
+ 
+             function attachSongEventListeners() {
+                 const songs = document.querySelectorAll('.song');
+                 songs.forEach(song => {
+                     // Remove existing listeners to prevent duplicates
+                     song.removeEventListener('click', handleSongClick);
+                     song.addEventListener('click', handleSongClick);
+                 });
+             }
+ 
+             function handleSongClick(event) {
+                 const songDiv = event.currentTarget;
+                 const title = songDiv.getAttribute('data-title');
+                 const album = songDiv.getAttribute('data-album');
+                 const artist = songDiv.getAttribute('data-artist');
+                 const cover = songDiv.getAttribute('data-cover');
+                 const audioPath = songDiv.getAttribute('data-audio');
+ 
+                 // Update now playing section
+                 document.getElementById('songTitle').textContent = title;
+                 document.getElementById('songArtist').textContent = artist;
+                 document.getElementById('songAlbum').textContent = album;
+                 document.getElementById('albumCover').src = cover;
+ 
+                 // Update mini player
+                 document.getElementById('floatingTitle').textContent = title;
+                 document.getElementById('floatingArtist').textContent = artist;
+                 document.getElementById('floatingAlbumCover').src = cover;
+ 
+                 // Set audio source and play
+                 audioPlayer.src = audioPath;
+                 audioPlayer.play();
+                 playPauseBtn.textContent = '⏸';
+                 floatingPlayPause.textContent = '⏸';
+ 
+                 // Show now playing section and mini player
+                 nowPlaying.style.display = 'flex';
+                 floatingMiniPlayer.style.display = 'flex';
+             }
+             
+                 // Call loadSongs after DOMContentLoaded
+                 loadSongs();
+             
+             // Play/Pause functionality
             playPauseBtn.addEventListener('click', togglePlayPause);
             floatingPlayPause.addEventListener('click', togglePlayPause);
             
