@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Andrew a41k - Web Developer Portfolio showcasing projects in web development and programming">
     <title>Andrew a41k | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <script src="song-data.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,6 +61,17 @@
             <p data-translate="me">I'm Andrew or A41K as known online. I've been making sites for 4-5 years now and started making them really and uploading for almost a year now. I do mostly for fun but also because I'm learning a lot</p>
         </div>
     </section>
+
+<!-- Spotify Now Playing Widget -->
+<div id="spotify-widget" class="spotify-widget">
+  <img id="spotify-cover" src="images/spotify-placeholder.png" alt="Album Art" />
+  <div class="spotify-track-info">
+    <div id="spotify-title">Loading…</div>
+    <div id="spotify-artist">Spotify</div>
+    <div id="spotify-time">—</div>
+  </div>
+  <img src="Song/covers/Spotify.png" alt="Spotify Logo" class="spotify-logo" />
+</div>
 
     <section class="skills">
         <div class="container">
@@ -278,432 +289,295 @@
         </div>
     </footer>
 
-    <div class="music-player" id="musicPlayer">
-        <div class="player-button" id="playerButton">
-            <img src="images/Music.avif" alt="Music Player">
+      <script src="https://www.youtube.com/iframe_api"></script>
+      
+    <!-- Draggable Music Player -->
+<div id="retro-player" class="retro-player">
+    <div class="player-header" id="drag-handle">
+        <span>K14A AMP</span> <!-- Renamed -->
+        <div class="window-controls">
+            <span class="minimize" onclick="togglePlayer()">_</span>
         </div>
-        
-        <div class="content-container" id="contentContainer">
-            <div class="back-button" id="backButton">← Back to Albums</div>
-            <div class="album-list" id="albumList">
-                <!-- Albums will be dynamically loaded here -->
-            </div>
-            <!-- Song Lists for Each Album -->
-            <div class="song-list" id="songs-container">
-                <!-- Songs will be dynamically loaded from song-data.js -->
-            </div>
-
+    </div>
     
-    <div class="floating-mini-player" id="floatingMiniPlayer">
-          <img id="floatingAlbumCover" class="mini-album-art" src="Music.avif" alt="Album cover">
-        <div class="mini-info">
-            <div class="mini-title" id="floatingTitle">Not Playing</div>
-            <div class="mini-artist" id="floatingArtist"></div>
+    <div class="player-body" id="player-body">
+        <div class="display-screen">
+            <div id="track-status">Ready to rock...</div>
+            <div class="time-display">
+                <span id="current-time">00:00</span> / <span id="total-time">00:00</span>
+            </div>
         </div>
-<div class="mini-controls">
-    <div class="mini-prev" id="floatingPrev">◀</div>
-    <div class="mini-play-pause" id="floatingPlayPause">▶</div>
-    <div class="mini-next" id="floatingNext">▶</div>
-    <div class="mini-volume">
-        <div class="mini-volume-icon">🔊</div>
-        <input type="range" id="miniVolumeSlider" min="0" max="1" step="0.01" value="1" class="mini-volume-slider">
+
+        <!-- PROGRESS BAR -->
+        <div class="progress-container">
+            <input type="range" id="seek-slider" max="100" value="0">
+        </div>
+
+
+        <div id="hidden-yt"></div>
+
+        <div class="controls-row">
+            <button class="control-btn" onclick="prevTrack()">|&lt;</button>
+            <button class="control-btn" onclick="togglePlay()" id="play-btn">▶</button>
+            <button class="control-btn" onclick="nextTrack()">&gt;|</button>
+            <!-- Volume Icon & Slider -->
+            <div style="display:flex; align-items:center; gap:2px; flex:1; justify-content:flex-end;">
+                <span style="font-size:10px">VOL</span>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5" oninput="setVolume(this.value)">
+            </div>
+        </div>
+
+        <div id="album-container" class="album-container"></div>
+
+                <div class="playlist-window" id="playlist-container">
+                <div class="playlist-placeholder">Select an album…</div>
+            </div>
+        </div>
     </div>
 </div>
-    
-    <div class="now-playing" id="nowPlaying">
-        <div class="now-playing-top">
-            <img id="albumCover" src="Song/covers/Disc.png" alt="Album cover">
-            <div class="song-details">
-                <div class="song-title" id="songTitle"></div>
-                <div class="song-artist" id="songArtist"></div>
-                <div class="song-album" id="songAlbum"></div>
-            </div>
-        </div>
-        <div class="playback-controls">
-            <div class="controls-wrapper">
-                <div class="prev-track" id="prevTrack">◀</div>
-                <div class="play-pause" id="playPause">▶</div>
-                <div class="next-track" id="nextTrack">▶</div>
-            </div>
-            <div class="progress-container" id="progressContainer">
-                <div class="progress-bar" id="progressBar"></div>
-                <div class="progress-handle" id="progressHandle"></div>
-            </div>
-            <div class="time" id="currentTime">0:00</div>
-        </div>
-        <div class="volume-container">
-            <div class="volume-icon">🔊</div>
-            <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" class="volume-slider">
-        </div>
-    </div>
-    
-    <audio id="audioPlayer"></audio>
-     <script src="song-data.js"></script>
+
     <script src="translations.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Main Elements
-            const musicPlayer = document.getElementById('musicPlayer');
-            const playerButton = document.getElementById('playerButton');
-            const contentContainer = document.getElementById('contentContainer');
-            const albumList = document.getElementById('albumList');
-            const backButton = document.getElementById('backButton');
-            const nowPlaying = document.getElementById('nowPlaying');
-            const albumCover = document.getElementById('albumCover');
-            const songTitle = document.getElementById('songTitle');
-            const songArtist = document.getElementById('songArtist');
-            const songAlbum = document.getElementById('songAlbum');
-            const floatingMiniPlayer = document.getElementById('floatingMiniPlayer');
-            const floatingAlbumCover = document.getElementById('floatingAlbumCover');
-            const floatingTitle = document.getElementById('floatingTitle');
-            const floatingArtist = document.getElementById('floatingArtist');
-            const volumeSlider = document.getElementById('volumeSlider');
-            const miniVolumeSlider = document.getElementById('miniVolumeSlider');
-            
-            // Get all albums
-            const albums = document.querySelectorAll('.album');
-            let songs = []; // This will be populated dynamically
-            
-            // Audio Player and Controls
-            const audioPlayer = document.getElementById('audioPlayer');
-            const playPauseBtn = document.getElementById('playPause');
-            const floatingPlayPause = document.getElementById('floatingPlayPause');
-            const progressBar = document.getElementById('progressBar');
-            const progressHandle = document.getElementById('progressHandle');
-            const progressContainer = document.getElementById('progressContainer');
-            const currentTime = document.getElementById('currentTime');
-            const prevTrack = document.getElementById('prevTrack');
-            const nextTrack = document.getElementById('nextTrack');
-            const floatingPrev = document.getElementById('floatingPrev');
-            const floatingNext = document.getElementById('floatingNext');
-            
-            // State
-            let currentSong = null;
-            let currentAlbumId = null;
-            let isDragging = false;
-            
-            // Create a map of album songs for easy navigation
-            const albumSongsMap = {};
+<script>
 
 
-            
-            // Store last viewed song list to return to it when reopening the player
-            let lastViewedSongList = null;
+// DOM elements
+const player = document.getElementById("retro-player");
+const header = document.getElementById("drag-handle");
+const audio = new Audio();
+const playBtn = document.getElementById("play-btn");
+const trackStatus = document.getElementById("track-status");
+const currTimeDisplay = document.getElementById("current-time");
+const totalTimeDisplay = document.getElementById("total-time");
+const seekSlider = document.getElementById("seek-slider");
+const playlistContainer = document.getElementById("playlist-container");
+const albumContainer = document.getElementById("album-container");
 
-            // Function to load songs from song-data.js
-            function loadSongs() {
-                const container = document.getElementById('songs-container');
-                container.innerHTML = ''; // Clear existing songs
-                window.albums.forEach(album => {
-                    album.songs.forEach((song, index) => {
-                        const songDiv = document.createElement('div');
-                        songDiv.className = 'song';
-                        songDiv.setAttribute('data-title', song.title);
-                        songDiv.setAttribute('data-album', album.name);
-                        songDiv.setAttribute('data-artist', album.artist);
-                        songDiv.setAttribute('data-cover', album.cover);
-                        songDiv.setAttribute('data-audio', song.path);
+let currentAlbum = null;
+let currentTrackIndex = 0;
+let isDragging = false;
+let isSeeking = false;
+let dragOffsetX = 0, dragOffsetY = 0;
 
-                        songDiv.innerHTML = `
-                            <div class="song-number">${index + 1}</div>
-                            <div class="song-name">${song.title}</div>
-                        `;
-                        container.appendChild(songDiv);
-                        songs.push(songDiv); // Add to the global songs array
-                    });
-                });
-                attachSongEventListeners();
-            }
+// === DRAGGING FUNCTIONALITY ===
+header.addEventListener("mousedown", (e) => {
+  if (e.button !== 0) return;
+  e.preventDefault();
+  isDragging = true;
+  const rect = player.getBoundingClientRect();
+  dragOffsetX = e.clientX - rect.left;
+  dragOffsetY = e.clientY - rect.top;
+  document.addEventListener("mousemove", dragMove);
+  document.addEventListener("mouseup", stopDrag);
+});
 
-            function attachSongEventListeners() {
-                const songs = document.querySelectorAll('.song');
-                songs.forEach(song => {
-                    // Remove existing listeners to prevent duplicates
-                    song.removeEventListener('click', handleSongClick);
-                    song.addEventListener('click', handleSongClick);
-                });
-            }
+function dragMove(e) {
+  if (!isDragging) return;
+  player.style.left = `${e.clientX - dragOffsetX}px`;
+  player.style.top = `${e.clientY - dragOffsetY}px`;
+  player.style.right = "auto";
+  player.style.bottom = "auto";
+}
 
-            function handleSongClick(event) {
-                const songDiv = event.currentTarget;
-                const title = songDiv.getAttribute('data-title');
-                const album = songDiv.getAttribute('data-album');
-                const artist = songDiv.getAttribute('data-artist');
-                const cover = songDiv.getAttribute('data-cover');
-                const audioPath = songDiv.getAttribute('data-audio');
+function stopDrag() {
+  isDragging = false;
+  document.removeEventListener("mousemove", dragMove);
+  document.removeEventListener("mouseup", stopDrag);
+}
 
-                // Update now playing section
-                document.getElementById('songTitle').textContent = title;
-                document.getElementById('songArtist').textContent = artist;
-                document.getElementById('songAlbum').textContent = album;
-                document.getElementById('albumCover').src = cover;
+// === RENDER ALBUMS ===
+function renderAlbums() {
+  albumContainer.innerHTML = "";
+  window.albums.forEach((album) => {
+    const card = document.createElement("div");
+    card.className = "album-card";
 
-                // Update mini player
-                document.getElementById('floatingTitle').textContent = title;
-                document.getElementById('floatingArtist').textContent = artist;
-                document.getElementById('floatingAlbumCover').src = cover;
+    const img = document.createElement("img");
+    img.src = album.cover;
+    img.alt = album.name;
 
-                // Set audio source and play
-                audioPlayer.src = audioPath;
-                audioPlayer.play();
-                playPauseBtn.textContent = '⏸';
-                floatingPlayPause.textContent = '⏸';
+    const info = document.createElement("div");
+    info.className = "album-info";
+    info.innerHTML = `${album.name}<span>${album.artist}</span>`;
 
-                // Show now playing section and mini player
-                nowPlaying.style.display = 'flex';
-                floatingMiniPlayer.style.display = 'flex';
-            }
-            
-            // Toggle player expansion when clicking the button
-            playerButton.addEventListener('click', function(e) {
-                musicPlayer.classList.toggle('expanded');
-                e.stopPropagation(); // Prevent event from bubbling up
-                
-                // If we have a last viewed song list and the player is expanded, show it
-                if (lastViewedSongList && musicPlayer.classList.contains('expanded')) {
-                    albumList.style.display = 'none';
-                    albumList.style.display = 'none';
-                    document.getElementById(lastViewedSongList).style.display = 'block';
-                    backButton.style.display = 'block';
-                }
-            });
-                // Set initial volume
-                audioPlayer.volume = volumeSlider.value;
+    card.appendChild(img);
+    card.appendChild(info);
+    card.onclick = () => loadAlbum(album);
+    albumContainer.appendChild(card);
+  });
+}
 
-                // Update volume when sliders change
-                volumeSlider.addEventListener('input', function() {
-                    audioPlayer.volume = this.value;
-                    miniVolumeSlider.value = this.value;
-                });
+// === LOAD ALBUM SONGS ===
+function loadAlbum(album) {
+  currentAlbum = album;
+  playlistContainer.innerHTML = "";
 
-                miniVolumeSlider.addEventListener('input', function() {
-                    audioPlayer.volume = this.value;
-                    volumeSlider.value = this.value;
-                });
+  const backBtn = document.createElement("div");
+  backBtn.className = "track-item";
+  backBtn.style.fontWeight = "bold";
+  backBtn.textContent = "← Back to Albums";
+  backBtn.onclick = renderAlbums;
+  playlistContainer.appendChild(backBtn);
 
+  album.songs.forEach((song, index) => {
+    const item = document.createElement("div");
+    item.className = "track-item";
+    item.textContent = `${index + 1}. ${song.title}`;
+    item.onclick = () => playSong(index);
+    playlistContainer.appendChild(item);
+  });
 
-                            
-            // Handle album click - show songs
-            albums.forEach(album => {
-                album.addEventListener('click', function() {
-                    const albumId = this.getAttribute('data-album-id');
-                    const songsList = document.getElementById(`songs-${albumId}`);
-                    
-                    // Hide album list, show song list
-                    albumList.style.display = 'none';
-                    songsList.style.display = 'block';
-                    backButton.style.display = 'block';
-                    
-                    // Store current album ID and last viewed song list
-                    currentAlbumId = albumId;
-                    lastViewedSongList = `songs-${albumId}`;
-                });
-            });
-            
-            // Handle back button click - return to albums
-            backButton.addEventListener('click', function() {
-                // Hide all song lists
-                document.querySelectorAll('.song-list').forEach(list => {
-                    list.style.display = 'none';
-                });
-                
-                // Show album list, hide back button
-                albumList.style.display = 'block';
-                backButton.style.display = 'none';
-            });
-            
-            // Function to load songs from song-data.js
-             function loadSongs() {
-                 const container = document.getElementById('songs-container');
-                 container.innerHTML = ''; // Clear existing songs
-                 window.albums.forEach(album => {
-                     album.songs.forEach((song, index) => {
-                         const songDiv = document.createElement('div');
-                         songDiv.className = 'song';
-                         songDiv.setAttribute('data-title', song.title);
-                         songDiv.setAttribute('data-album', album.name);
-                         songDiv.setAttribute('data-artist', album.artist);
-                         songDiv.setAttribute('data-cover', album.cover);
-                         songDiv.setAttribute('data-audio', song.path);
-                         
-                         songDiv.innerHTML = `
-                             <div class="song-number">${index + 1}</div>
-                             <div class="song-name">${song.title}</div>
-                         `;
-                         container.appendChild(songDiv);
-                     });
-                 });
-                 attachSongEventListeners();
-             }
- 
-             function attachSongEventListeners() {
-                 const songs = document.querySelectorAll('.song');
-                 songs.forEach(song => {
-                     // Remove existing listeners to prevent duplicates
-                     song.removeEventListener('click', handleSongClick);
-                     song.addEventListener('click', handleSongClick);
-                 });
-             }
- 
-             function handleSongClick(event) {
-                 const songDiv = event.currentTarget;
-                 const title = songDiv.getAttribute('data-title');
-                 const album = songDiv.getAttribute('data-album');
-                 const artist = songDiv.getAttribute('data-artist');
-                 const cover = songDiv.getAttribute('data-cover');
-                 const audioPath = songDiv.getAttribute('data-audio');
- 
-                 // Update now playing section
-                 document.getElementById('songTitle').textContent = title;
-                 document.getElementById('songArtist').textContent = artist;
-                 document.getElementById('songAlbum').textContent = album;
-                 document.getElementById('albumCover').src = cover;
- 
-                 // Update mini player
-                 document.getElementById('floatingTitle').textContent = title;
-                 document.getElementById('floatingArtist').textContent = artist;
-                 document.getElementById('floatingAlbumCover').src = cover;
- 
-                 // Set audio source and play
-                 audioPlayer.src = audioPath;
-                 audioPlayer.play();
-                 playPauseBtn.textContent = '⏸';
-                 floatingPlayPause.textContent = '⏸';
- 
-                 // Show now playing section and mini player
-                 nowPlaying.style.display = 'flex';
-                 floatingMiniPlayer.style.display = 'flex';
-             }
-             
-                 // Call loadSongs after DOMContentLoaded
-                 loadSongs();
-             
-             // Play/Pause functionality
-            playPauseBtn.addEventListener('click', togglePlayPause);
-            floatingPlayPause.addEventListener('click', togglePlayPause);
-            
-            function togglePlayPause() {
-                if (audioPlayer.paused) {
-                    audioPlayer.play()
-                        .then(() => {
-                            playPauseBtn.innerHTML = '❚❚';
-                            floatingPlayPause.innerHTML = '❚❚';
-                        })
-                        .catch(error => {
-                            console.error('Error playing audio:', error);
-                        });
-                } else {
-                    audioPlayer.pause();
-                    playPauseBtn.innerHTML = '▶';
-                    floatingPlayPause.innerHTML = '▶';
-                }
-            }
-            
-            // Update progress bar as song plays
-            audioPlayer.addEventListener('timeupdate', function() {
-                if (!isDragging) {
-                    const percentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-                    progressBar.style.width = `${percentage}%`;
-                    progressHandle.style.left = `${percentage}%`;
-                    
-                    // Update current time
-                    const minutes = Math.floor(audioPlayer.currentTime / 60);
-                    const seconds = Math.floor(audioPlayer.currentTime % 60).toString().padStart(2, '0');
-                    currentTime.textContent = `${minutes}:${seconds}`;
-                }
-            });
-            
-            // Handle progress bar clicks and drags
-            progressContainer.addEventListener('mousedown', function(e) {
-                isDragging = true;
-                updateProgress(e);
-            });
-            
-            document.addEventListener('mousemove', function(e) {
-                if (isDragging) {
-                    updateProgress(e);
-                }
-            });
-            
-            document.addEventListener('mouseup', function() {
-                if (isDragging) {
-                    isDragging = false;
-                }
-            });
-            
-            function updateProgress(e) {
-                const bounds = progressContainer.getBoundingClientRect();
-                const x = e.clientX - bounds.left;
-                const percentage = Math.min(Math.max(x / bounds.width, 0), 1);
-                
-                progressBar.style.width = `${percentage * 100}%`;
-                progressHandle.style.left = `${percentage * 100}%`;
-                
-                // Set audio time
-                audioPlayer.currentTime = percentage * audioPlayer.duration;
-            }
-            
-            // Previous/Next track functionality
-            prevTrack.addEventListener('click', playPreviousSong);
-            floatingPrev.addEventListener('click', playPreviousSong);
-            
-            nextTrack.addEventListener('click', playNextSong);
-            floatingNext.addEventListener('click', playNextSong);
-            
-            function playPreviousSong() {
-                if (!currentSong) return;
-                
-                const albumId = currentAlbumId;
-                const songs = albumSongsMap[albumId];
-                const currentIndex = songs.indexOf(currentSong);
-                
-                if (currentIndex > 0) {
-                    const prevSong = songs[currentIndex - 1];
-                    prevSong.click();
-                } else {
-                    // Wrap around to the last song
-                    const lastSong = songs[songs.length - 1];
-                    lastSong.click();
-                }
-            }
-            
-            function playNextSong() {
-                if (!currentSong) return;
-                
-                const albumId = currentAlbumId;
-                const songs = albumSongsMap[albumId];
-                const currentIndex = songs.indexOf(currentSong);
-                
-                if (currentIndex < songs.length - 1) {
-                    const nextSong = songs[currentIndex + 1];
-                    nextSong.click();
-                } else {
-                    // Wrap around to the first song
-                    const firstSong = songs[0];
-                    firstSong.click();
-                }
-            }
-            
-            // When song ends, play next song
-            audioPlayer.addEventListener('ended', function() {
-                playNextSong();
-            });
-            
-            // Click outside to close player
-            document.addEventListener('click', function(e) {
-                // Check if the click was inside the music player or related elements
-                const isClickInside = musicPlayer.contains(e.target) || 
-                                     nowPlaying.contains(e.target) ||
-                                     floatingMiniPlayer.contains(e.target);
-                
-                // If click was outside, collapse the player
-                if (!isClickInside && musicPlayer.classList.contains('expanded')) {
-                    musicPlayer.classList.remove('expanded');
-                }
-            });
-        });
-    
+  trackStatus.textContent = `${album.name} — ${album.artist}`;
+}
+
+// === PLAY SONG ===
+function playSong(index) {
+  if (!currentAlbum) return;
+
+  currentTrackIndex = index;
+  const song = currentAlbum.songs[index];
+
+  // Highlight current track
+  document.querySelectorAll(".track-item").forEach(t => t.classList.remove("active"));
+  const items = document.querySelectorAll(".track-item");
+  if (items[index + 1]) items[index + 1].classList.add("active"); // +1 because of back button
+
+  audio.src = song.path;
+  audio.play();
+
+  playBtn.textContent = "||";
+  trackStatus.textContent = `${song.title} — ${currentAlbum.artist}`;
+}
+
+// === CONTROLS ===
+function togglePlay() {
+  if (!audio.src) return;
+  if (audio.paused) {
+    audio.play();
+    playBtn.textContent = "||";
+  } else {
+    audio.pause();
+    playBtn.textContent = "▶";
+  }
+}
+
+function nextTrack() {
+  if (!currentAlbum) return;
+  currentTrackIndex = (currentTrackIndex + 1) % currentAlbum.songs.length;
+  playSong(currentTrackIndex);
+}
+
+function prevTrack() {
+  if (!currentAlbum) return;
+  currentTrackIndex = (currentTrackIndex - 1 + currentAlbum.songs.length) % currentAlbum.songs.length;
+  playSong(currentTrackIndex);
+}
+
+function setVolume(val) {
+  audio.volume = val;
+}
+
+function togglePlayer() {
+  document.getElementById("player-body").classList.toggle("minimized");
+}
+
+// === PROGRESS BAR & TIME ===
+audio.addEventListener("timeupdate", () => {
+  if (isSeeking) return;
+  if (audio.duration) {
+    const progress = (audio.currentTime / audio.duration) * 100;
+    seekSlider.value = progress;
+    currTimeDisplay.textContent = formatTime(audio.currentTime);
+    totalTimeDisplay.textContent = formatTime(audio.duration);
+  }
+});
+
+seekSlider.addEventListener("input", () => (isSeeking = true));
+seekSlider.addEventListener("change", () => {
+  if (!audio.duration) return;
+  audio.currentTime = (seekSlider.value / 100) * audio.duration;
+  isSeeking = false;
+});
+
+audio.addEventListener("ended", nextTrack);
+
+function formatTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return `${m}:${s < 10 ? "0" : ""}${s}`;
+}
+
+// === INIT ===
+renderAlbums();
+
+// === SPOTIFY NOW PLAYING (via Last.fm) ===
+document.addEventListener("DOMContentLoaded", () => {
+  const spotifyCover = document.getElementById("spotify-cover");
+  const spotifyTitle = document.getElementById("spotify-title");
+  const spotifyArtist = document.getElementById("spotify-artist");
+  const spotifyTime = document.getElementById("spotify-time");
+  const spotifyWidget = document.getElementById("spotify-widget");
+
+  const LASTFM_USERNAME = "A41K"; // ← change
+  const LASTFM_API_KEY = "0706ae456947814c142bf9feba0b617f";   // ← change
+
+  async function updateSpotify() {
+    try {
+      const res = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${LASTFM_USERNAME}&api_key=${LASTFM_API_KEY}&format=json&limit=1`);
+      const data = await res.json();
+      if (!data.recenttracks || !data.recenttracks.track) {
+        showNoSong();
+        return;
+      }
+
+      const track = data.recenttracks.track[0];
+      const title = track.name || "Unknown";
+      const artist = track.artist["#text"] || "Unknown Artist";
+      const cover = track.image[3]["#text"] || "images/spotify-placeholder.png";
+      const nowPlaying = track["@attr"] && track["@attr"].nowplaying;
+      const playedAt = track.date ? track.date.uts : null;
+
+      spotifyCover.src = cover;
+      spotifyTitle.textContent = title;
+      spotifyArtist.textContent = artist;
+
+      if (nowPlaying) {
+        spotifyTime.textContent = "• Listening now";
+        spotifyWidget.classList.remove("inactive");
+      } else if (playedAt) {
+        spotifyTime.textContent = `Last played ${timeSince(playedAt * 1000)} ago`;
+        spotifyWidget.classList.add("inactive");
+      } else {
+        spotifyTime.textContent = "—";
+      }
+    } catch (err) {
+      console.error("Last.fm fetch error:", err);
+      showNoSong();
+    }
+  }
+
+  function showNoSong() {
+    spotifyCover.src = "images/spotify-placeholder.png";
+    spotifyTitle.textContent = "Not listening to anything";
+    spotifyArtist.textContent = "Spotify";
+    spotifyTime.textContent = "—";
+  }
+
+  function timeSince(timestamp) {
+    const now = new Date();
+    const seconds = Math.floor((now - timestamp) / 1000);
+    if (seconds < 60) return `${seconds}s`;
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}m`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h`;
+    const days = Math.floor(hours / 24);
+    return `${days}d`;
+  }
+
+  updateSpotify();
+});
+
         // Mobile Menu Functionality
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');

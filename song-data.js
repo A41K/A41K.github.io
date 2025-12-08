@@ -1,52 +1,5 @@
 window.albums = [
     {
-        id: 'blonde',
-        name: 'Blonde',
-        artist: 'Frank Ocean',
-        cover: 'Song/covers/Blonde.png',
-        songs: [
-            { title: 'Nikes', path: 'Song/Blonde/Nikes.mp3' },
-            { title: 'Ivy', path: 'Song/Blonde/Ivy.mp3' },
-            { title: 'Pink + White', path: 'Song/Blonde/Pink + White.mp3' },
-            { title: 'Be Yourself', path: 'Song/Blonde/Be Yourself.mp3' },
-            { title: 'Solo', path: 'Song/Blonde/Solo.mp3' },
-            { title: 'Skyline To', path: 'Song/Blonde/Skyline To.mp3' },
-            { title: 'Self Control', path: 'Song/Blonde/Self Control.mp3' },
-            { title: 'Good Guy', path: 'Song/Blonde/Good Guy.mp3' },
-            { title: 'Nights', path: 'Song/Blonde/Nights.mp3' },
-            { title: 'Solo (Reprise)', path: 'Song/Blonde/Solo (Reprise).mp3' },
-            { title: 'Pretty Sweet', path: 'Song/Blonde/Pretty Sweet.mp3' },
-            { title: 'Facebook Story', path: 'Song/Blonde/Facebook Story.mp3' },
-            { title: 'Close to You', path: 'Song/Blonde/Close to You.mp3' },
-            { title: 'White Ferrari', path: 'Song/Blonde/White Ferrari.mp3' },
-            { title: 'Seigfried', path: 'Song/Blonde/Seigfried.mp3' },
-            { title: 'Godspeed', path: 'Song/Blonde/Godspeed.mp3' },
-            { title: 'Futura Free', path: 'Song/Blonde/Futura Free.mp3' }
-        ]
-    },
-    {
-        id: 'damn',
-        name: 'DAMN.',
-        artist: 'Kendrick Lamar',
-        cover: 'Song/covers/DAMN..png',
-        songs: [
-            { title: 'BLOOD.', path: 'Song/DAMN/BLOOD..mp3' },
-            { title: 'DNA.', path: 'Song/DAMN/DNA..mp3' },
-            { title: 'YAH.', path: 'Song/DAMN/YAH..mp3' },
-            { title: 'ELEMENT.', path: 'Song/DAMN/ELEMENT..mp3' },
-            { title: 'FEEL.', path: 'Song/DAMN/FEEL..mp3' },
-            { title: 'LOYALTY.', path: 'Song/DAMN/LOYALTY..mp3' },
-            { title: 'PRIDE.', path: 'Song/DAMN/PRIDE..mp3' },
-            { title: 'HUMBLE.', path: 'Song/DAMN/HUMBLE..mp3' },
-            { title: 'LUST.', path: 'Song/DAMN/LUST..mp3' },
-            { title: 'LOVE.', path: 'Song/DAMN/LOVE..mp3' },
-            { title: 'XXX.', path: 'Song/DAMN/XXX..mp3' },
-            { title: 'FEAR.', path: 'Song/DAMN/FEAR..mp3' },
-            { title: 'GOD.', path: 'Song/DAMN/GOD..mp3' },
-            { title: 'DUCKWORTH.', path: 'Song/DAMN/DUCKWORTH..mp3' }
-        ]
-    },
-    {
         id: 'channel-orange',
         name: 'channel ORANGE',
         artist: 'Frank Ocean',
@@ -72,36 +25,10 @@ window.albums = [
         ]
     },
     {
-        id: 'mr-morale',
-        name: 'Mr. Morale & The Big Steppers',
-        artist: 'Kendrick Lamar',
-        cover: 'Song/covers/Mr. Morale & The Big Steppers.png',
-        songs: [
-            { title: 'United In Grief', path: 'Song/Mr. Morale/United In Grief.mp3' },
-            { title: 'N95', path: 'Song/Mr. Morale/N95.mp3' },
-            { title: 'Worldwide Steppers', path: 'Song/Mr. Morale/Worldwide Steppers.mp3' },
-            { title: 'Die Hard', path: 'Song/Mr. Morale/Die Hard.mp3' },
-            { title: 'Father Time', path: 'Song/Mr. Morale/Father Time.mp3' },
-            { title: 'Rich (Interlude)', path: 'Song/Mr. Morale/Rich (Interlude).mp3' },
-            { title: 'Rich Spirit', path: 'Song/Mr. Morale/Rich Spirit.mp3' },
-            { title: 'We Cry Together', path: 'Song/Mr. Morale/We Cry Together.mp3' },
-            { title: 'Purple Hearts', path: 'Song/Mr. Morale/Purple Hearts.mp3' },
-            { title: 'Count Me Out', path: 'Song/Mr. Morale/Count Me Out.mp3' },
-            { title: 'Crown', path: 'Song/Mr. Morale/Crown.mp3' },
-            { title: 'Silent Hill', path: 'Song/Mr. Morale/Silent Hill.mp3' },
-            { title: 'Savior (Interlude)', path: 'Song/Mr. Morale/Savior (Interlude).mp3' },
-            { title: 'Savior', path: 'Song/Mr. Morale/Savior.mp3' },
-            { title: 'Auntie Diaries', path: 'Song/Mr. Morale/Auntie Diaries.mp3' },
-            { title: 'Mr. Morale', path: 'Song/Mr. Morale/Mr. Morale.mp3' },
-            { title: 'Mother I Sober', path: 'Song/Mr. Morale/Mother I Sober.mp3' },
-            { title: 'Mirror', path: 'Song/Mr. Morale/Mirror.mp3' }
-        ]
-    },
-    {
         id: 'tpab',
         name: 'To Pimp A Butterfly',
         artist: 'Kendrick Lamar',
-        cover: 'Song/covers/To Pimp A Butterfly.png',
+        cover: 'Song/covers/TPAB.png',
         songs: [
             { title: 'Wesley\'s Theory', path: 'Song/TPAB/Wesleys Theory.mp3' },
             { title: 'For Free? (Interlude)', path: 'Song/TPAB/For Free (Interlude).mp3' },
@@ -122,23 +49,60 @@ window.albums = [
         ]
     },
     {
-        id: 'gkmc',
-        name: 'good kid, m.A.A.d city',
-        artist: 'Kendrick Lamar',
-        cover: 'Song/covers/good kid, m.A.A.d city.png',
-        songs: [
-            { title: 'Sherane a.k.a Master Splinters Daughter', path: 'Song/GKMC/Sherane.mp3' },
-            { title: 'Bitch, Don\'t Kill My Vibe', path: 'Song/GKMC/Bitch, Don’t Kill My Vibe.mp3' },
-            { title: 'Backseat Freestyle', path: 'Song/GKMC/Backseat Freestyle.mp3' },
-            { title: 'The Art of Peer Pressure', path: 'Song/GKMC/The Art of Peer Pressure.mp3' },
-            { title: 'Money Trees', path: 'Song/GKMC/Money Trees.mp3' },
-            { title: 'Poetic Justice', path: 'Song/GKMC/Poetic Justice.mp3' },
-            { title: 'good kid', path: 'Song/GKMC/good kid.mp3' },
-            { title: 'm.A.A.d city', path: 'Song/GKMC/m.A.A.d city.mp3' },
-            { title: 'Swimming Pools (Drank)', path: 'Song/GKMC/Swimming Pools (Drank).mp3' },
-            { title: 'Sing About Me, I\'m Dying of Thirst', path: 'Song/GKMC/SAMIDOT.mp3' },
-            { title: 'Real', path: 'Song/GKMC/Real.mp3' },
-            { title: 'Compton', path: 'Song/GKMC/Compton.mp3' }
-        ]
-    }
+    id: "nostalgia-ultra",
+    name: "nostalgia, ULTRA",
+    artist: "Frank Ocean",
+    cover: "Song/covers/NostalgiaUltra.jpg",
+    songs: [
+        { title: "Street Fighter", path: "Song/nostalgiaULTRA/01 street fighter.mp3" },
+        { title: "Strawberry Swing", path: "Song/nostalgiaULTRA/02 strawberry swing.mp3" },
+        { title: "Novacane", path: "Song/nostalgiaULTRA/03 novacane.mp3" },
+        { title: "We All Try", path: "Song/nostalgiaULTRA/04 we all try.mp3" },
+        { title: "Bitches Talkin", path: "Song/nostalgiaULTRA/05 bitches talkin_.mp3" },
+        { title: "Songs for Women", path: "Song/nostalgiaULTRA/06 songs for women.mp3" },
+        { title: "LoveCrimes", path: "Song/nostalgiaULTRA/07 lovecrimes.mp3" },
+        { title: "Goldeneye", path: "Song/nostalgiaULTRA/08 goldeneye.mp3" },
+        { title: "There Will Be Tears", path: "Song/nostalgiaULTRA/09 there will be tears.mp3" },
+        { title: "Swim Good", path: "Song/nostalgiaULTRA/10 swim good.mp3" },
+        { title: "Dust", path: "Song/nostalgiaULTRA/11 dust.mp3" },
+        { title: "American Wedding", path: "Song/nostalgiaULTRA/12 american wedding.mp3" },
+        { title: "Nature Feels", path: "Song/nostalgiaULTRA/14 nature feels.mp3" }
+    ]
+    },
+    {
+    id: "dont-tap-the-glass",
+    name: "DON'T TAP THE GLASS",
+    artist: "Tyler, The Creator",
+    cover: "Song/covers/DTTG.webp",
+    songs: [
+        { title: "Big Poe", path: "Song/DTTG/Big Poe.mp3" },
+        { title: "Sugar On My Tongue", path: "Song/DTTG/Sugar On My Tongue.mp3" },
+        { title: "Sucka Free", path: "Song/DTTG/Sucka Free.mp3" },
+        { title: "Mommanem", path: "Song/DTTG/Mommanem.mp3" },
+        { title: "Stop Playing With Me", path: "Song/DTTG/STOP PLAYING WITH ME.m4a" },
+        { title: "Ring Ring Ring", path: "Song/DTTG/Ring Ring Ring.mp3" },
+        { title: "Don't Tap That Glass / Tweakin'", path: "Song/DTTG/Don't Tap That Glass ⧸ Tweakin'.mp3" },
+        { title: "Don't You Worry Baby", path: "Song/DTTG/Don't You Worry Baby.mp3" },
+        { title: "I'll Take Care of You", path: "Song/DTTG/I'll Take Care of You.mp3" },
+        { title: "Tell Me What It Is", path: "Song/DTTG/Tell Me What It Is.mp3" },
+    ]
+    },
+    {
+    id: "4yeo",
+    name: "4 Your Eyez Only",
+    artist: "J. Cole",
+    cover: "Song/covers/4YEO.jpg",
+    songs: [
+        { title: "For Whom the Bell Tolls", path: "Song/4YEO/For Whom the Bell Tolls.mp3" },
+        { title: "Immortal", path: "Song/4YEO/Immortal.mp3" },
+        { title: "Deja Vu", path: "Song/4YEO/Deja Vu.mp3" },
+        { title: "Ville Mentality", path: "Song/4YEO/Ville Mentality.mp3" },
+        { title: "She's Mine Pt. 1", path: "Song/4YEO/She's Mine Pt. 1.mp3" },
+        { title: "Change", path: "Song/4YEO/Change.mp3" },
+        { title: "Neighbors", path: "Song/4YEO/Neighbors.mp3" },
+        { title: "Foldin Clothes", path: "Song/4YEO/Foldin Clothes.mp3" },
+        { title: "She's Mine Pt. 2", path: "Song/4YEO/She's Mine Pt. 2.mp3" },
+        { title: "4 Your Eyez Only", path: "Song/4YEO/4 Your Eyez Only.mp3" }
+    ]
+    },
 ];
