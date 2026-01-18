@@ -738,6 +738,13 @@
   opacity: 1;
 }
 
+@media (max-width: 768px) {
+    #retro-player {
+        display: none !important;
+    }
+}
+
+
 .language-switcher button:hover {
   background: #444;
 }
