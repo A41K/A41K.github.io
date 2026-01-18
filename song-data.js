@@ -105,4 +105,30 @@ window.albums = [
         { title: "4 Your Eyez Only", path: "Song/4YEO/4 Your Eyez Only.mp3" }
     ]
     },
+{
+    id: "dbd-asap",
+    name: "DON'T BE DUMB",
+    artist: "A$AP Rocky",
+    cover: "Song/covers/DBD.jpg",
+    songs: [
+        { title: "ORDER OF PROTECTION", path: "Song/DBD/ORDER OF PROTECTION.mp3" },
+        { title: "HELICOPTER", path: "Song/DBD/HELICOPTER.mp3" },
+        { title: "INTERROGATION (SKIT)", path: "Song/DBD/INTERROGATION (SKIT).mp3" },
+        { title: "STOLE YA FLOW", path: "Song/DBD/STOLE YA FLOW.mp3" },
+        { title: "STAY HERE 4 LIFE", path: "Song/DBD/STAY HERE 4 LIFE.mp3" },
+        { title: "PLAYA", path: "Song/DBD/PLAYA.mp3" },
+        { title: "NO TRESPASSING", path: "Song/DBD/NO TRESPASSING.mp3" },
+        { title: "STOP SNITCHING", path: "Song/DBD/STOP SNITCHING.mp3" },
+        { title: "STFU", path: "Song/DBD/STFU.mp3" },
+        { title: "PUNK ROCKY", path: "Song/DBD/PUNK ROCKY.mp3" },
+        { title: "AIR FORCE (BLACK DEMARCO)", path: "Song/DBD/AIR FORCE (BLACK DEMARCO).mp3" },
+        { title: "WHISKEY (RELEASE ME)", path: "Song/DBD/WHISKEY (RELEASE ME).mp3" },
+        { title: "ROBBERY", path: "Song/DBD/ROBBERY.mp3" },
+        { title: "DON'T BE DUMB / TRIP BABY", path: "Song/DBD/DON'T BE DUMB／TRIP BABY.mp3" },
+        { title: "THE END", path: "Song/DBD/THE END.mp3" },
+        { title: "SWAT TEAM", path: "Song/DBD/SWAT TEAM.mp3" },
+        { title: "FISH N STEAK (WHAT IT IS)", path: "Song/DBD/FISH N STEAK (WHAT IT IS).mp3" },
+
+    ]
+    },
 ];
