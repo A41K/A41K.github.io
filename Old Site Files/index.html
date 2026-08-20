@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Andrew a41k - Web Developer Portfolio showcasing projects in web development and programming">
+    <title>Andrew a41k | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="song-data.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="images/Favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">A41K</a>
+                <div class="nav-links" id="navLinks">
+                    <a href="#" class="active" data-translate="Nav1">Home</a>
+                    <a href="#projects" data-translate="Nav2">Projects</a>
+                    <a href="https://a41k.github.io/Projects" data-translate="Nav3">Games</a>
+                    <a href="http://a41k.me/Archive-Portfolio/" data-translate="Nav4">Archive</a>
+                </div>
+
+                <div class="language-switcher">
+                    <button onclick="toggleLanguage()">EN</button>
+                </div>
+
+                <div class="hamburger" id="hamburger">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="greeting-container">
+                <div class="greeting">
+                    <span class="hi">Hi</span>
+                    <span class="hey">Hey</span>
+                    <span class="hello">Hello</span>
+                </div>
+                <p class="tagline" data-translate="Portfolio">This is my portfolio</p>
+                <p class="subtitle" data-translate="Port2">You can find all my projects here</p>
+                <a href="#projects" class="cta-button" data-translate="Button">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="introduction">
+        <div class="container">
+            <h2 class="introduction-title" data-translate="Intro">Little introduction about myself:</h2>
+            <p data-translate="about-text">Welcome to my humble abode. This website was made because my projects grew bigger and more in amount so I had to make a portfolio.</p>
+            <p data-translate="me">I'm Andrew or A41K as known online. I've been making sites for 4-5 years now and started making them really and uploading for almost a year now. I do mostly for fun but also because I'm learning a lot</p>
+        </div>
+    </section>
+
+<!-- Spotify Now Playing Widget -->
+<div id="spotify-widget" class="spotify-widget">
+  <img id="spotify-cover" src="images/spotify-placeholder.png" alt="Album Art" />
+  <div class="spotify-track-info">
+    <div id="spotify-title">Loading…</div>
+    <div id="spotify-artist">Spotify</div>
+    <div id="spotify-time">—</div>
+  </div>
+  <img src="Song/covers/Spotify.png" alt="Spotify Logo" class="spotify-logo" />
+</div>
+
+    <section class="skills">
+        <div class="container">
+            <h2 class="section-title" data-translate="skill">My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML/CSS</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>React</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Node.js</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Databases</span>
+                            <span>45%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 45%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>API Design</span>
+                            <span>30%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 30%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Others</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Git</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>UI/UX Design</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Assembly</span>
+                            <span>30%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 30%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title" data-translate="Prot">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <a href="https://a41k.github.io/Projects/"><img src="images/games.png" alt="Project preview" class="project-img"></a>
+                    <div class="project-content">
+                        <h3>Personal Games Portfolio</h3>
+                        <p>Another website dedicated to my own games/other projects I made over the months</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                <a href="https://a41k.github.io/Hackathon2/"><img src="images/valve.png" alt="Project preview" class="project-img"></a>
+                    <div class="project-content">
+                        <h3>Hackathon Project</h3>
+                        <p>A two hand made project for the Codédex hackathon</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">API</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <a href="https://a41k.framer.website"><img src="images/framer.png" alt="Project preview" class="project-img"></a>
+                    <div class="project-content">
+                        <h3>Framer Prototype</h3>
+                        <p>This was my original portfolio. Now this is the new one :D</p>
+                        <div class="project-tags">
+                            <span class="tag">Framer</span>
+                            <span class="tag">UI/UX</span>
+                            <span class="tag">Prototype</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <a href="https://a41k.github.io/stamps/index.html"><img src="images/Stamp.png" alt="Project preview" class="project-img"></a>
+                    <div class="project-content">
+                        <h3>School Project 1</h3>
+                        <p>Mostly a school project but yeah also made this so lets showcase it</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <a href="https://sport4life.github.io/"><img src="images/Sport4life.png" alt="Project preview" class="project-img"></a>
+                    <div class="project-content">
+                        <h3>School Project 2</h3>
+                        <p>A website for our school project company</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <a href="https://a41k.github.io/SummerHackathon/"><img src="images/sipnplay.png" alt="Project preview" class="project-img"></a>
+                    <div class="project-content">
+                        <h3>Hackathon 1</h3>
+                        <p>A very badly made first Hackathon project</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-translate="Quick">Quick Links</h3>
+                    <a href="#" data-translate="Nav1">Home</a>
+                    <a href="#projects" data-translate="Nav2">Projects</a>
+                    <a href="https://a41k.github.io/Projects/" data-translate="Nav3">Games</a>
+                    <a href="http://a41k.me/Archive-Portfolio/" data-translate="Nav4">Archive</a>
+                </div>
+                <div class="footer-section">
+                    <h3 data-translate="Cont">Contact</h3>
+                    <p>Email: a41koutside@gmail.com</p>
+                    <div class="social-links">
+                        <a href="https://github.com/A41K" aria-label="GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/%C3%A1rok-andr%C3%A1s-7584ab2b0/" aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/A41KOF" aria-label="Twitter">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Andrew (a41k). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+      <script src="https://www.youtube.com/iframe_api"></script>
+      
+    <!-- Draggable Music Player -->
+<div id="retro-player" class="retro-player">
+    <div class="player-header" id="drag-handle">
+        <span>K14A AMP</span> <!-- Renamed -->
+        <div class="window-controls">
+            <span class="minimize" onclick="togglePlayer()">_</span>
+        </div>
+    </div>
+    
+    <div class="player-body" id="player-body">
+        <div class="display-screen">
+            <div id="track-status">Ready to rock...</div>
+            <div class="time-display">
+                <span id="current-time">00:00</span> / <span id="total-time">00:00</span>
+            </div>
+        </div>
+
+        <!-- PROGRESS BAR -->
+        <div class="progress-container">
+            <input type="range" id="seek-slider" max="100" value="0">
+        </div>
+
+
+        <div id="hidden-yt"></div>
+
+        <div class="controls-row">
+            <button class="control-btn" onclick="prevTrack()">|&lt;</button>
+            <button class="control-btn" onclick="togglePlay()" id="play-btn">▶</button>
+            <button class="control-btn" onclick="nextTrack()">&gt;|</button>
+            <!-- Volume Icon & Slider -->
+            <div style="display:flex; align-items:center; gap:2px; flex:1; justify-content:flex-end;">
+                <span style="font-size:10px">VOL</span>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5" oninput="setVolume(this.value)">
+            </div>
+        </div>
+
+        <div id="album-container" class="album-container"></div>
+
+                <div class="playlist-window" id="playlist-container">
+                <div class="playlist-placeholder">Select an album…</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="translations.js"></script>
+
+<script>
+
+
+// DOM elements
+const player = document.getElementById("retro-player");
+const header = document.getElementById("drag-handle");
+const audio = new Audio();
+const playBtn = document.getElementById("play-btn");
+const trackStatus = document.getElementById("track-status");
+const currTimeDisplay = document.getElementById("current-time");
+const totalTimeDisplay = document.getElementById("total-time");
+const seekSlider = document.getElementById("seek-slider");
+const playlistContainer = document.getElementById("playlist-container");
+const albumContainer = document.getElementById("album-container");
+
+let currentAlbum = null;
+let currentTrackIndex = 0;
+let isDragging = false;
+let isSeeking = false;
+let dragOffsetX = 0, dragOffsetY = 0;
+
+// === DRAGGING FUNCTIONALITY ===
+header.addEventListener("mousedown", (e) => {
+  if (e.button !== 0) return;
+  e.preventDefault();
+  isDragging = true;
+  const rect = player.getBoundingClientRect();
+  dragOffsetX = e.clientX - rect.left;
+  dragOffsetY = e.clientY - rect.top;
+  document.addEventListener("mousemove", dragMove);
+  document.addEventListener("mouseup", stopDrag);
+});
+
+function dragMove(e) {
+  if (!isDragging) return;
+  player.style.left = `${e.clientX - dragOffsetX}px`;
+  player.style.top = `${e.clientY - dragOffsetY}px`;
+  player.style.right = "auto";
+  player.style.bottom = "auto";
+}
+
+function stopDrag() {
+  isDragging = false;
+  document.removeEventListener("mousemove", dragMove);
+  document.removeEventListener("mouseup", stopDrag);
+}
+
+// === RENDER ALBUMS ===
+function renderAlbums() {
+  albumContainer.innerHTML = "";
+  window.albums.forEach((album) => {
+    const card = document.createElement("div");
+    card.className = "album-card";
+
+    const img = document.createElement("img");
+    img.src = album.cover;
+    img.alt = album.name;
+
+    const info = document.createElement("div");
+    info.className = "album-info";
+    info.innerHTML = `${album.name}<span>${album.artist}</span>`;
+
+    card.appendChild(img);
+    card.appendChild(info);
+    card.onclick = () => loadAlbum(album);
+    albumContainer.appendChild(card);
+  });
+}
+
+// === LOAD ALBUM SONGS ===
+function loadAlbum(album) {
+  currentAlbum = album;
+  playlistContainer.innerHTML = "";
+
+  const backBtn = document.createElement("div");
+  backBtn.className = "track-item";
+  backBtn.style.fontWeight = "bold";
+  backBtn.textContent = "← Back to Albums";
+  backBtn.onclick = renderAlbums;
+  playlistContainer.appendChild(backBtn);
+
+  album.songs.forEach((song, index) => {
+    const item = document.createElement("div");
+    item.className = "track-item";
+    item.textContent = `${index + 1}. ${song.title}`;
+    item.onclick = () => playSong(index);
+    playlistContainer.appendChild(item);
+  });
+
+  trackStatus.textContent = `${album.name} — ${album.artist}`;
+}
+
+// === PLAY SONG ===
+function playSong(index) {
+  if (!currentAlbum) return;
+
+  currentTrackIndex = index;
+  const song = currentAlbum.songs[index];
+
+  // Highlight current track
+  document.querySelectorAll(".track-item").forEach(t => t.classList.remove("active"));
+  const items = document.querySelectorAll(".track-item");
+  if (items[index + 1]) items[index + 1].classList.add("active"); // +1 because of back button
+
+  audio.src = song.path;
+  audio.play();
+
+  playBtn.textContent = "||";
+  trackStatus.textContent = `${song.title} — ${currentAlbum.artist}`;
+}
+
+// === CONTROLS ===
+function togglePlay() {
+  if (!audio.src) return;
+  if (audio.paused) {
+    audio.play();
+    playBtn.textContent = "||";
+  } else {
+    audio.pause();
+    playBtn.textContent = "▶";
+  }
+}
+
+function nextTrack() {
+  if (!currentAlbum) return;
+  currentTrackIndex = (currentTrackIndex + 1) % currentAlbum.songs.length;
+  playSong(currentTrackIndex);
+}
+
+function prevTrack() {
+  if (!currentAlbum) return;
+  currentTrackIndex = (currentTrackIndex - 1 + currentAlbum.songs.length) % currentAlbum.songs.length;
+  playSong(currentTrackIndex);
+}
+
+function setVolume(val) {
+  audio.volume = val;
+}
+
+function togglePlayer() {
+  document.getElementById("player-body").classList.toggle("minimized");
+}
+
+// === PROGRESS BAR & TIME ===
+audio.addEventListener("timeupdate", () => {
+  if (isSeeking) return;
+  if (audio.duration) {
+    const progress = (audio.currentTime / audio.duration) * 100;
+    seekSlider.value = progress;
+    currTimeDisplay.textContent = formatTime(audio.currentTime);
+    totalTimeDisplay.textContent = formatTime(audio.duration);
+  }
+});
+
+seekSlider.addEventListener("input", () => (isSeeking = true));
+seekSlider.addEventListener("change", () => {
+  if (!audio.duration) return;
+  audio.currentTime = (seekSlider.value / 100) * audio.duration;
+  isSeeking = false;
+});
+
+audio.addEventListener("ended", nextTrack);
+
+function formatTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return `${m}:${s < 10 ? "0" : ""}${s}`;
+}
+
+// === INIT ===
+renderAlbums();
+
+// === SPOTIFY NOW PLAYING (via Last.fm) ===
+document.addEventListener("DOMContentLoaded", () => {
+  const spotifyCover = document.getElementById("spotify-cover");
+  const spotifyTitle = document.getElementById("spotify-title");
+  const spotifyArtist = document.getElementById("spotify-artist");
+  const spotifyTime = document.getElementById("spotify-time");
+  const spotifyWidget = document.getElementById("spotify-widget");
+
+  const LASTFM_USERNAME = "A41K"; 
+  const LASTFM_API_KEY = "0706ae456947814c142bf9feba0b617f";  
+
+  async function updateSpotify() {
+    try {
+      const res = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${LASTFM_USERNAME}&api_key=${LASTFM_API_KEY}&format=json&limit=1`);
+      const data = await res.json();
+      if (!data.recenttracks || !data.recenttracks.track) {
+        showNoSong();
+        return;
+      }
+
+      const track = data.recenttracks.track[0];
+      const title = track.name || "Unknown";
+      const artist = track.artist["#text"] || "Unknown Artist";
+      const cover = track.image[3]["#text"] || "images/spotify-placeholder.png";
+      const nowPlaying = track["@attr"] && track["@attr"].nowplaying;
+      const playedAt = track.date ? track.date.uts : null;
+
+      spotifyCover.src = cover;
+      spotifyTitle.textContent = title;
+      spotifyArtist.textContent = artist;
+
+      if (nowPlaying) {
+        spotifyTime.textContent = "• Listening now";
+        spotifyWidget.classList.remove("inactive");
+      } else if (playedAt) {
+        spotifyTime.textContent = `Last played ${timeSince(playedAt * 1000)} ago`;
+        spotifyWidget.classList.add("inactive");
+      } else {
+        spotifyTime.textContent = "—";
+      }
+    } catch (err) {
+      console.error("Last.fm fetch error:", err);
+      showNoSong();
+    }
+  }
+
+  function showNoSong() {
+    spotifyCover.src = "images/spotify-placeholder.png";
+    spotifyTitle.textContent = "Not listening to anything";
+    spotifyArtist.textContent = "Spotify";
+    spotifyTime.textContent = "—";
+  }
+
+  function timeSince(timestamp) {
+    const now = new Date();
+    const seconds = Math.floor((now - timestamp) / 1000);
+    if (seconds < 60) return `${seconds}s`;
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}m`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h`;
+    const days = Math.floor(hours / 24);
+    return `${days}d`;
+  }
+
+  updateSpotify();
+});
+
+        // Mobile Menu Functionality
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#navLinks') && !e.target.closest('#hamburger')) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // Animate skill bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skills = entry.target.querySelectorAll('.skill-progress');
+                    skills.forEach(skill => {
+                        const width = skill.style.width;
+                        skill.style.width = '0%';
+                        setTimeout(() => {
+                            skill.style.width = width;
+                        }, 100);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        const skillCategories = document.querySelectorAll('.skill-category');
+        skillCategories.forEach(category => {
+            observer.observe(category);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Close mobile menu after clicking a link
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+        
+        // Active link highlighting based on scroll position
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (sectionId && scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+            
+            // Keep Home active when at the top
+            if (scrollPosition < 100) {
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#') {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
