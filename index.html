@@ -1,16 +1,91 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A41K | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="song-data.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="image/x-icon" href="images/Favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A41K — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="center-screen">
-    <h1>SOON™</h1>
+<header>
+  <nav class="wrap">
+    <span class="logo">A41K</span>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <!-- ================= HERO / INTRO ================= -->
+  <section class="hero" id="about" style="border-top:none;">
+    <div>
+      <span class="eyebrow">Hi, I'm</span>
+      <h1>Andrew</h1>
+      <p class="tagline">a.k.a. <strong>A41K</strong> — 16, and building my way into software engineering.</p>
+      <p class="intro-text">
+        I started coding <strong>6+ years ago</strong> and haven't stopped since. I'm into
+        <strong>music</strong>, <strong>art</strong>, and <strong>tech</strong>, and I spend a lot of
+        my time with <strong>Hack Club</strong> and <strong>GitHub Education</strong> — entering
+        hackathons and game jams, and building games, apps, and hardware in between.
+      </p>
+      <div class="intro-badges">
+        <span class="tag">16 y/o</span>
+        <span class="tag">6+ yrs coding</span>
+        <span class="tag">Hack Club</span>
+        <span class="tag">GitHub Education</span>
+        <span class="tag">KiCad</span>
+        <span class="tag">Fusion 360</span>
+      </div>
+    </div>
+
+    <div class="now-playing" id="now-playing">
+      <div class="np-art" id="np-art"></div>
+      <div class="np-body">
+        <div class="np-label">
+          <span id="np-status-text">Last played</span>
+          <span class="eq" id="np-eq" aria-hidden="true"><span></span><span></span><span></span></span>
+        </div>
+        <div class="np-track" id="np-track">Loading…</div>
+        <div class="np-artist" id="np-artist">&nbsp;</div>
+      </div>
+      <a class="np-link" id="np-link" href="#" target="_blank" rel="noopener">Open</a>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="work">
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <span class="section-count" id="project-count"></span>
+    </div>
+    <div class="projects" id="projects"></div>
+    <a class="more-projects" href="https://a41k.org/Projects" target="_blank" rel="noopener">
+        See all my other projects →
+    </a>
+  </section>
+
+
+
+</main>
+
+<!-- ================= FOOTER / SOCIALS ================= -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <h2 class="socials-heading">Socials</h2>
+      <div class="socials" id="socials"></div>
+    </div>
+    <p class="copyright">© <span id="year"></span> Andrew (A41K). Built with black, white, and Poppins.</p>
+  </div>
+  <script src="script.js"></script>
+</footer>
 </body>
+</html>
