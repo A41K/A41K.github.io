@@ -1,8 +1,4 @@
-/* ==========================================================
-     PROJECTS — edit this array to add / remove / reorder work.
-     Each object renders as one card. That's the whole API.
-  ========================================================== */
-  const projects = [
+const projects = [
     {
       title: "Godot Rhythm Game",
       year: "2026",
@@ -33,11 +29,6 @@
    */
   ];
 
-  /* ==========================================================
-     SOCIALS — edit this array to add / remove buttons.
-     "icon" is a Simple Icons slug — see https://simpleicons.org
-     to confirm or swap any of these.
-  ========================================================== */
   const socials = [
     { label: "GitHub",   url: "https://github.com/A41K",         icon: "github" },
     { label: "Twitter",  url: "https://x.com/A41Kof",              icon: "x" },
@@ -45,20 +36,12 @@
     { label: "itch.io",  url: "https://A41K.itch.io",            icon: "itchdotio" },
     { label: "Email",    url: "mailto:a41koutside@gmail.com",        icon: "gmail" },
     { label: "Last.fm",    url: "https://last.fm/user/A41K",            icon: "lastdotfm" },
+    { label: "Slack",    url: "https://a41k.slack.com",            icon: "slack" },
+    { label: "bluesky",    url: "https://bsky.app/profile/a41k.bsky.social",            icon: "bluesky" },
   ];
 
-  /* ==========================================================
-     NOW PLAYING — pulls live data from your own serverless
-     endpoint (see /api/now-playing.js). That endpoint holds your
-     Spotify secrets and refreshes the access token server-side —
-     a static page can't safely do that part on its own.
-
-     Set this to your deployed function's URL, e.g.
-     "https://your-project.vercel.app/api/now-playing".
-  ========================================================== */
   const NOW_PLAYING_ENDPOINT = "https://your-project.vercel.app/api/now-playing";
 
-  // Shown if the endpoint hasn't been set up yet, or a request fails.
   const fallbackNowPlaying = {
     isPlaying: false,
     track: "Not connected yet",

@@ -5,7 +5,6 @@ export default async function handler(req, res) {
   try {
     const token = await getAccessToken();
 
-    // 1. Check if something is playing right now
     const nowRes = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
       headers: { Authorization: `Bearer ${token}` }
     });
@@ -17,7 +16,6 @@ export default async function handler(req, res) {
       }
     }
 
-    // 2. Nothing playing right now — fall back to the most recently played track
     const recentRes = await fetch('https://api.spotify.com/v1/me/player/recently-played?limit=1', {
       headers: { Authorization: `Bearer ${token}` }
     });

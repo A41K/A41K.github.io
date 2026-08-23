@@ -193,7 +193,6 @@ h1{
 }
 .np-link:hover{ color: var(--fg); border-color: var(--border-strong); }
 
-/* equalizer — the one animated flourish on the page */
 .eq{
   display: inline-flex;
   align-items: flex-end;
@@ -280,8 +279,6 @@ section{ padding: 56px 0; border-top: 1px solid var(--border); }
 
 .project-tags{ display: flex; flex-wrap: wrap; gap: 8px; }
 
-/* shared pill used for project tags AND the intro badges above —
-   one small piece of vocabulary, reused on purpose */
 .tag{
   font-size: 11px;
   color: var(--muted);
